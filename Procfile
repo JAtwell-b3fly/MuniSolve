@@ -1,1 +1,1 @@
-web: python -m rasa run --enable-api --cors "*" -p %PORT% 
+web: python -m sanic app.app
