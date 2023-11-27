@@ -1,0 +1,612 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: thank
+  examples: |
+    - thanks
+    - thank you so much
+    - thank you
+    - much appreciated
+    - i appreciated it
+    - many thanks
+
+- intent: nlu_fallback
+    
+    
+#- intent: yes_response
+#  examples: |
+#    - yes i do
+#    - yes
+#    - of course
+#    - yes please
+#    - please
+    
+- intent: what_meterReading
+  examples: |
+    - what is an interim reading?
+    - what is an interim reading
+    - i want to know what an interim reading is
+    - interim reading?
+    - interim reading
+    - tell me what an interim reading is
+    
+- intent: how_electricity_reading
+  examples: |
+    - how do i take my electricity reading?
+    - how do i take my electricity reading
+    - how do i take an electricity reading?
+    - how do i take an electricity reading
+    - electricity reading?
+    - electricity reading
+    - take an electricity reading
+    - take my electricity reading
+
+- intent: submit_own_reading
+  examples: |
+    - how do i submit my own reading?
+    - how to submit my own reading?
+    - submit my own reading
+    - submit own reading
+    
+- intent: how_utility_bill
+  examples: |
+    - how can i pay my utility bill?
+    - how can i pay my utility bill
+    - pay my utility bill
+    - utility bill
+    - pay utility bill
+
+#- intent: how_incentive_payment
+#  examples: |
+#   - how do i qualify for the incentive payment?
+#    - how do i qualify for the incentive payment
+#    - qualify for the incentive payment
+#    - incentive payment?
+#    - incentive payment
+#    - do i qualify for the incentive payment?
+#    - do i qualify for the incentive payment
+    
+- intent: clearance_certificate
+  examples: |
+    - clearance certificate?
+    - clearance certificate
+    - what is a clearance certificate?
+    - what is a clearance certificate?
+    - documents needed for transfer of property
+    
+#- intent: change_ownership
+#  examples: |
+#    - change of ownership on property?
+#    - how do i transfer ownership on property?
+#    - change of ownership on property
+#    - how do i transfer ownership on property
+    
+- intent: why_deposit_utility_bill
+  examples: |
+    - why should a deposit be allocated to your utility bill?
+    - why should a deposit be allocated to your utility bill
+    - deposit allocated to your utility bill?
+    - deposit allocated to your utility bill
+    - deposit to your utility bill
+    
+- intent: why_penalty_fee
+  examples: |
+    - why is a penalty fee charged on my account?
+    - why is a penalty fee charged on my account
+    - penalty fee on my account?
+    - penalty fee on my account
+    - why do i have a penalty fee on my account?
+    
+- intent: how_personal_details
+  examples: |
+    - how can i update my personal details and email address for monthly statements?
+    - how can i update my personal details?
+    - how can i update my personal details
+    - how can i update my personal details for my monthly statements?
+    - how can i update my personal details for my monthly statements
+    - update personal details for monthly statements
+    - update personal details
+    
+- intent: indigent
+  examples: |
+    - what is an indigent?
+    - what is an indigent
+    - am i an indigent?
+    - am i an indigent
+    
+- intent: indigent_subsidy
+  examples: |
+    - indigent services
+    - what services does an indigent receive?
+    - what services does an indigent receive
+    - what are the services
+    - services?
+    - services
+    
+- intent: indigent_application
+  examples: |
+    - how do i apply for the indigent subsidy?
+    - how do i apply
+    - how do i apply?
+    - apply?
+    - apply
+    
+    
+    
+    
+- intent: market_value_valuation?
+  examples: |
+    - what is the market value in property valuation?
+    - what is the market value in property valuation
+    - market value in property valuation?
+    - market value in property valuation
+    - what is market value in property valuation
+ 
+- intent: property_general_valuation_roll?
+  examples: |
+    - who produces property values on the General Valuation Roll?
+    - who produces property values on the General Valuation Roll
+    - property values on General Valuation Roll?
+    - who makes property values on the General Valuation Roll
+    
+- intent: properties_inspected?
+  examples: |
+    - why are some properties inspected for valuation?
+    - why are some properties inspected for valuation
+    - properties inspected for valuation?
+    - why are properties inspected
+    
+    
+    
+#- intent: rebate_property_pensioner?
+#  examples: |
+#    - can I get a rebate on my property rates if I'm a pensioner?
+#    - can I get a rebate on my property rates if I am a pensioner
+#    - rebate on my property rates as a pensioner
+#    - property rates as a pensioner
+#    - get a rebate on my property rates as a pensioner
+    
+#- intent: rebates_specific_property?
+#  examples: |
+#    - are there rebates for properties used for specific purposes?
+#    - are there rebates for properties used for specific purposes
+#    - rebates for properties used for specific purposes
+#    - properties used for specific purposes
+    
+#- intent: multi_purpose_categories_rates?
+#  examples: |
+#    - how are multi-purpose properties categorised for rates?
+#    - how are multi-purpose properties categorised for rates
+#    - multi-purpose properties categorised for rates
+#    - properties categorised for rates
+#    - multi-purpose properties for rates
+#    - properties for rates
+    
+    
+    
+#- intent: supp_valuation_roll?
+#  examples: |
+#    - what is a Supplementary Valuation Roll?
+#    - what is a Supplementary Valuation Roll
+#    - supplementary valuation roll
+#    - what is a SVR
+#    - svr
+    
+#- intent: receive_notice_valuation?
+#  examples: |
+#    - why did I receive multiple notices with different valuations?
+#    - why did I receive multiple notices with different valuations
+#    - receive notices with different valuations
+#    - notices with valuations
+#    - notices with different valuations
+#    - why did I receive notices
+    
+#- intent: rate_cal_res_properties?
+#  examples: |
+#    - how is the rate calculated for residential properties?
+#    - how is the rate calculated for residential properties
+#    - how is the rate calculated
+#    - how is the residential rate calculated
+    
+    
+
+#- intent: diff_categories_rating?
+#  examples: |
+#    - what are the different categories of properties for rating purposes?
+#    - what are the different categories of properties for rating purposes
+#    - different categories of properties for rating purposes
+#    - different properties for rating purposes
+#    - different categories for rating purposes
+    
+#- intent: category_property_determined?
+#  examples: |
+#    - how is the category of a property determined?
+#    - how is the category of a property determined
+#    - category of a property determined
+#    - how to determine the category of a property
+    
+#- intent: exceptions_property_categories?
+#  examples: |
+#    - are there any exceptions to property categories?
+#    - are there any exceptions to property categories
+#    - exceptions to property categories
+#    - what are the exceptions to property categories
+    
+    
+    
+    
+- intent: explain_prop_rates_cal?
+  examples: |
+    - can you explain how property rates are calculated?
+    - can you explain how property rates are calculated
+    - explain how property rates are calculated
+    
+- intent: eg_property_rates_cal?
+  examples: |
+    - can you provide an example of property rates calculation?
+    - can you provide an example of property rates calculation
+    - provide an example of property rates calculation
+    - example of property rates calculation
+    - property rates calculation example
+    
+- intent: cent_amt_rand_rate?
+  examples: |
+    - who sets the cent amount in the rand rate?
+    - who sets the cent amount in the rand rate
+    - who sets the rand rate
+    - who sets the cent amount
+    - set cent amount in the rand rate
+    - set rand rate
+    
+    
+    
+    
+- intent: municipal_property_rates?
+  examples: |
+    - what is the Municipal Property Rates Act?
+    - what is the Municipal Property Rates Act
+    - what is the municipal property rates act
+    - municipal property rates act
+    - Municipal Property Rates Act
+    - what is the MPR Act
+    - what is the MPR act
+    
+- intent: responsible_MPR_payment?
+  examples: |
+    - who is responsible for the payment of municipal property rates?
+    - who is responsible for the payment of municipal property rates
+    - responsible for the payment of municipal property rates
+    - payment of municipal rates
+    - municipal property rates payment
+    
+- intent: object_municipal_valuation?
+  examples: |
+    - how can I object to a municipal valuation?
+    - how can I object to a municipal valuation
+    - object to a municipal valuation
+    - municipal valuation objection
+    
+    
+    
+    
+#- intent: use_property_multi_purpose?
+#  examples: |
+#    - what happens if a property is used for multiple purposes?
+#    - what happens if a property is used for multiple purposes
+#    - used property for multiple reasons
+#    - what happens if a property is used
+#    - used property
+    
+#- intent: eg_property_categories?
+#  examples: |
+#    - can you provide more examples of property categories?
+#    - can you provide more examples of property categories
+#    - examples of property categories
+#    - category properties examples
+    
+    
+    
+    
+    
+#- intent: general_valuation_roll_updated?
+#  examples: |
+#    - how often is the General Valuation Roll updated?
+#    - how often is the General Valuation Roll updated
+#    - general valuation roll updates
+#    - General Valuation Roll updates
+#    - how often is the general valuation roll updated
+    
+#- intent: what_supplementary_valuation_roll?
+#  examples: |
+#    - what is a Supplementary Valuation Roll?
+#    - what is a Supplementary Valuation Roll
+#    - what is a supplementary valuation roll
+#    - supplementary valuation roll
+    
+#- intent: notices_diff_supplementary_valuation_roll?
+#  examples: |
+#    - Why did I receive multiple notices with different valuations for the same Supplementary Valuation Roll?
+#    - why did I receive multiple notices with different valuations for the same supplementary valuation roll
+#    - multiple notices with different valuations for the same supplementary valuation roll
+#    - multiple notices with different valuations
+#    - different valuations for the same supplementary valuation roll
+    
+    
+   
+   
+- intent: date_valuation_nb?
+  examples: |
+    - why is the date of valuation important?
+    - why is the date of valuation important
+    - date of valuation
+    - why date of valuation
+    
+- intent: values_prop_valuation_roll?
+  examples: |
+    - who produces the values assigned to properties on the Valuation Rolls?
+    - who produces the values assigned to properties on the Valuation Rolls
+    - who produces the valuation rolls properties values
+    
+- intent: selected_physical_inspection?
+  examples: |
+    - how are properties selected for physical inspection?
+    - how are properties selected for physical inspection
+    - properties selected for physical inspection
+    - physical inspection selected properties
+    
+    
+    
+- intent: process_objecting_municipal_valuation?
+  examples: |
+    - what is the process for objecting to a municipal valuation?
+    - what is the processs for objecting to a municpal valuation
+    - process for objecting to a municipal valuation
+    - municipal valuation objecting process
+    
+- intent: disagree_objection_decision?
+  examples: |
+    - what if I disagree with the objection decision?
+    - what if I disagree with the objection decision
+    - disagree with the objection decision
+    - objection decision disagreement
+    
+- intent: long_appeal_process?
+  examples: |
+    - how long does the appeal process take?
+    - how long does the appeal process take
+    - appeal process period
+    - appeal process length
+    - time taken for appeal process
+    - how much time does it take for the appeal process
+    
+    
+    
+    
+    
+#- intent: property_rates_categories
+#  examples: |
+#    - tell more more about property rates and categories
+#    - more information about property rates and categories
+#    - more about property rates and categories
+#    - property rates and categories information
+    
+#- intent: explain_property_category
+#  examples: |
+#    - can you explain how my property's category is determined?
+#    - can you explain how my property's category is determined
+#    - explain how my property's category is determined
+#    - property's category explanation
+    
+#- intent: incorrect_property_category
+#  examples: |
+#    - what if I believe my property's category is incorrect?
+#    - what if I believe my property's category is incorrect
+#    - incorrect property's category
+#    - my property's category is incorrect
+    
+#- intent: exceptions_properties
+#  examples: |
+#    - are there any exceptions for certain properties?
+#    - are there any exceptions for certain properties
+#    - exceptions for certain properties
+#    - certain properties exceptions
+#    - property rates exceptions
+    
+#- intent: process_objecting_property_category
+#  examples: |
+#    - what is the process for objecting to a property's category?
+#    - what is the process for objecting to a property's category
+#    - what's the processs for objecting to a property's category
+#    - process for objecting to a property's category
+#    - objecting to a property's category process
+#    - property's category objecting process
+    
+#- intent: explain_appeal_property_category_objections
+#  examples: |
+#    - can you explain the appeal process for property category objections?
+#    - can you explain the appeal process for property category objections
+#    - explain the appeal process for property category objections
+#    - appeal process for property category objections
+    
+#- intent: more_quez_about_property
+#  examples: |
+#    - what if I have more questions about property categories and rates?
+#    - what if I have more questions about property categories and rates
+#    - I have more questions about property categories and rates
+#    - I have more questions
+#    - tell me more about property categories and rates
+#    - tell me more
+    
+    
+
+
+#- intent: valuation_appeal_board
+#  examples: |
+#    - tell me more about the Valuation Appeal Board?
+#    - tell me more about the valuation appeal board
+#    - tell me more about vab
+#    - valuation appeal board
+#    - vab
+    
+#- intent: vab_role
+#  examples: |
+#    - what is the valuation appeal board's role?
+#    - what is the vab's role
+#    - valuation appeal board's role
+#    - vab's role
+    
+#- intent: lodge_appeal_vab
+#  examples: |
+#    - how do I lodge an appeal with the Valuation Appeal Board?
+#    - how do I lodge an appeal with the VAB?
+#    - lodge an appeal with valuation appeal board
+#    - lodge an appeal with vab
+#    - appeal with valuation appeal board
+#    - appeal with vab
+    
+#- intent: vab_hearing
+#  examples: |
+#    - what happens during a Valuation Appeal Board hearing?
+#    - what happens during a VAB hearing?
+#    - vab hearing
+#    - valuation appeal board hearing
+    
+#- intent: long_resolve_appeal
+#  examples: |
+#    - how long does it take to resolve an appeal?
+#    - how long does it take to resolve a vab appeal
+#    - how long does it take to resolve a valuation appeal board appeal
+#    - appeal resolve
+#    - resolve an appeal
+    
+#- intent: vabs_final_decision
+#  examples: |
+#    - is the VAB's decision final?
+#    - is the valuation appeal board's decision final
+#    - final vab's decision
+#    - final valuation appeal board's decision
+#    - is the decision final
+    
+#- intent: more_questions_vab_appeal
+#  examples: |
+#    - what if I have more questions about the VAB or the appeal process?
+#    - what if I have more questions about the Valuation Appeal Board or the appeal process?
+#    - what if I have more questions about the VAB
+#    - what if I have more questions about the valuation appeal board
+#    - what if I have more questions about the appeal process
+#    - tell me more about the VAB and appeal process
+#    - tell me more about the VAB
+#    - tell me more about the appeal process
+#    - tell me more about the Valuation Appeal Board
+#    - VAB and the appeal process
+#    - valuation appeal board and the appeal process
+    
+    
+    
+    
+- intent: early_payment_discounts
+  examples: |
+    - can you tell me more about early payment discounts?
+    - tell me more about early payment discounts
+    - early payment discounts information
+    - early payment discounts
+    
+- intent: early_payment_how
+  examples: |
+    - how does the early payment discount work?
+    - explain the early payment discount
+
+- intent: specific_deadline_early_payments
+  examples: |
+    - is there a specific deadline for making early payments?
+    - deadline for making early payments
+    - early payment deadlines
+    - early payment dates
+    - early payment closing dates
+    
+- intent: early_payment_all_bills
+  examples: |
+    - are early payment discounts applicable to all types of bills?
+    - early discounts applicable to all types of bills
+    - early discounts for all types of bills
+    - early discounts for all bills
+    
+- intent: early_payments_discount
+  examples: |
+    - how can I make early payments and ensure I receive the discount?
+    - how can I make early payments to receive a discount
+    - how to ensure I receive a discount
+    
+- intent: benefits_early_pay_discount
+  examples: |
+    - what are the benefits of taking advantage of early payment discounts?
+    - benefits of taking advantage of early payment discounts
+    - benefits of early payments
+    
+    
+    
+    
+- intent: municipal_revenue_collect
+  examples: |
+    - how does the municipality collect revenue, and what is it used for?
+    - how does the municipality collect revenue
+    - what is the municipality revenue used for
+    - municipal revenue collection and purpose
+    
+- intent: details_revenue_uses
+  examples: |
+    - can you provide more details on how the revenue is used?
+    - what is the revenue used for
+    - revenue purposes
+    - revenue uses
+    
+- intent: nb_pay_bill_on_time
+  examples: |
+    - why is it important for customers to pay their bills on time
+    - why should I pay my bills on time
+    - should I pay my bills on time
+    
+- intent: municipality_dont_receive
+  examples: |
+    - what happens if the municipality doesn't receive payments from customers
+    - what happens if the municipality doesn't receive payments
+    - what happens if I don't pay
+    
+- intent: disconnected_non_payment
+  examples: |
+    - is there a risk of services being disconnected due to non-payment
+    - will my services be disconnected when I don't pay
+    - what is the consequences for not paying
+    - what happens when I don't pay
+    
+- intent: avoid_disconnections
+  examples: |
+    - how can customers avoid service disconnections?
+    - how can I avoid service disonnections
+    - how can we avoid service disconnections
+    - how can I prevent my services from being disconnected
+    - service disconnected
+    - avoid service disconnections
