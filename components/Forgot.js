@@ -25,21 +25,17 @@ export default function Login() {
       <Image style={styles.logo} source={require("../assets/BotIcon.gif")} />
       <View style={styles.signup}>
         <Text style={styles.title}>SIGN IN</Text>
+        <Text style={styles.paragraph}>
+            Enter the email address you used when you joined and we’ll send you
+            instructions to reset your password
+          </Text>        
         <View style={styles.inputContainer}>
             <Image source={require("../assets/3.png")} style={styles.icon} />
             <TextInput style={styles.input} placeholder="Email" />
           </View>
-          <View style={styles.inputContainer}>
-            <Image source={require("../assets/MUNI.png")} style={styles.icon} />
-            <TextInput
-            style={styles.input}
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword} />
-          </View>
-          <TouchableOpacity  style={styles.forgot}>FORGOT PASSWORD</TouchableOpacity>
-          <TouchableOpacity  ><Text style={styles.Loginbtn}>SIGN IN</Text></TouchableOpacity> 
-          <TouchableOpacity style={styles.btn2} >SIGN UP</TouchableOpacity>                   
+          <Text style={{textAlign: 'right', fontSize: 16,}}>You remember your <TouchableOpacity style={styles.remember}>Login</TouchableOpacity></Text>
+          <TouchableOpacity  ><Text style={styles.Restbtn}>Rest Password</Text></TouchableOpacity> 
+                   
       </View>
     </View>
   );
@@ -74,7 +70,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 28,
     fontWeight: 700,
-    marginBottom:60
+    marginBottom:40,
   },
 
   inputContainer: {
@@ -105,14 +101,14 @@ const styles = StyleSheet.create({
     borderColor:'#ffff'
 
   },
-  Loginbtn:{
+  Restbtn:{
     borderWidth:1,
     width:250,
     height:40,
     textAlign:'center',
     paddingTop:9,
     alignSelf:'center',
-    marginTop:40,
+    marginTop:20,
     backgroundColor:'#22719E',
     borderColor:'#22719E',
     color:'#ffff',
@@ -127,10 +123,20 @@ const styles = StyleSheet.create({
     color:'#22719E',
     fontWeight:700,
   },
-  forgot:{
-    marginLeft:120,
+  remember:{
+    
     marginTop:10,
-    fontWeight:700,
+    
     color:'#22719E',
-  }
+  },
+  paragraph: {
+    width: 280,
+    fontWeight: 500,
+    color: "gray",
+    marginLeft: 10,
+    marginTop: 10,
+    textAlign: 'center',
+    marginBottom: 20,
+    fontSize: 16
+  },
 });
