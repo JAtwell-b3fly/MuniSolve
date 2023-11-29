@@ -50,7 +50,7 @@ const Signup = () => {
            </View>
           
            <TouchableOpacity  ><Text style={styles.Signupbtn}>SIGN UP</Text></TouchableOpacity> 
-          <Text style={{alignSelf: "center", textAlign: 'center', marginTop: 10}}>You already have an account ? <TouchableOpacity style={styles.login}>Login</TouchableOpacity></Text>
+          <Text style={{textAlign: 'center', fontSize: 16, color: "gray",}}>You already have an account ? <TouchableOpacity style={styles.login}>Login</TouchableOpacity></Text>
        </View>
      </View>
    );
