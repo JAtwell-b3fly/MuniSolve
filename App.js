@@ -6,7 +6,7 @@ import Forgot from './components/Forgot';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Login/>
+      <Forgot/>
       <StatusBar style="auto" />
     </View>
   );

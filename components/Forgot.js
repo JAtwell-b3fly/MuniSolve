@@ -33,7 +33,7 @@ export default function Login() {
             <Image source={require("../assets/3.png")} style={styles.icon} />
             <TextInput style={styles.input} placeholder="Email" />
           </View>
-          <Text style={{textAlign: 'right', fontSize: 16,}}>You remember your <TouchableOpacity style={styles.remember}>Login</TouchableOpacity></Text>
+          <Text style={{textAlign: 'right', fontSize: 16,color: "#22719E",}}>You remember your <TouchableOpacity style={styles.remember}>Login</TouchableOpacity></Text>
           <TouchableOpacity  ><Text style={styles.Restbtn}>Rest Password</Text></TouchableOpacity> 
                    
       </View>
