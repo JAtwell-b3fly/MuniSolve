@@ -1,14 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Chathistory from './components/Chathistory';
+import Edit from './components/Edit';
+import Profile from './components/Profile';
 
-export default function App() {
 
+e
   
 
+
+import Login from "./components/login"
+import Forgot from './components/Forgot';
+
+export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+
+      <Chathistory/>
+
+
+
+      <Edit/>
+      
+
     </View>
   );
 }
@@ -18,6 +32,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'start',
   },
 });
