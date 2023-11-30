@@ -10,9 +10,12 @@ export default function App() {
       <Chathistory/>
 =======
 import Login from "./components/login"
+import Forgot from './components/Forgot';
+
 export default function App() {
   return (
     <View style={styles.container}>
+<<<<<<< HEAD
       <Login/>
 >>>>>>> login
 =======
@@ -23,6 +26,9 @@ export default function App() {
     <View style={styles.container}>
       <Signup/>
 >>>>>>> signup
+=======
+      <Forgot/>
+>>>>>>> forgotpassword
       <StatusBar style="auto" />
     </View>
   );

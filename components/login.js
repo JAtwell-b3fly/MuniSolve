@@ -22,7 +22,7 @@ export default function Login() {
         style={styles.backgroundImage}
         source={require("../assets/background.png")}
       />
-      <Image style={styles.logo} source={require("../assets/MUNI-SOLVE (2).png")} />
+      <Image style={styles.logo} source={require("../assets/BotIcon.gif")} />
       <View style={styles.signup}>
         <Text style={styles.title}>SIGN IN</Text>
         <View style={styles.inputContainer}>
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     width: 392,
   },
   logo: {
-    height: 250,
-    width: 250,
+    height: 200,
+    width: 200,
     position: "absolute",
     zIndex: 1,
     top: 50,
