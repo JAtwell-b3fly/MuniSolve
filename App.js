@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import Chathistory from './components/Chathistory';
-=======
-import Edit from './components/Edit';
-import Profile from './components/Profile';
->>>>>>> profile
-=======
+
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import HomePage from "./components/HomePage";
@@ -22,44 +11,12 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
->>>>>>> HomePage
+
 
 export default function App() {
   const Drawer = createDrawerNavigator();
 
-  return (
-<<<<<<< HEAD
-    <View style={styles.container}>
-<<<<<<< HEAD
-      <Chathistory/>
-=======
-import Login from "./components/login"
-import Forgot from './components/Forgot';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-<<<<<<< HEAD
-      <Login/>
->>>>>>> login
-=======
-
-import Signup from './components/signup';
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Signup/>
->>>>>>> signup
-=======
-      <Forgot/>
->>>>>>> forgotpassword
-      <StatusBar style="auto" />
-=======
-      <Edit/>
-      
->>>>>>> profile
-    </View>
-=======
+ return(
     <NavigationContainer>
       <Drawer.Navigator
         drawerContent={(props) => <ProfilePage {...props} />}
@@ -131,7 +88,7 @@ export default function App() {
       </Drawer.Navigator>
       
     </NavigationContainer>
->>>>>>> HomePage
+
   );
 }
 
@@ -147,15 +104,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-<<<<<<< HEAD
-    justifyContent: 'start',
-  },
-=======
     justifyContent: 'center',
     // height:5,
     // width:50,
     // backgroundColor:'blue',
     // borderRadius:15,
   }
->>>>>>> HomePage
 });

@@ -33,11 +33,7 @@ export default function Login() {
             <Image source={require("../assets/3.png")} style={styles.icon} />
             <TextInput style={styles.input} placeholder="Email" />
           </View>
-<<<<<<< HEAD
-          <Text style={{textAlign: 'right', fontSize: 16,color: "#22719E",}}>You remember your <TouchableOpacity style={styles.remember}>Login</TouchableOpacity></Text>
-=======
           <Text style={{textAlign: 'center', fontSize: 16, color: "gray",}}>You remember your <TouchableOpacity style={styles.remember}>Login</TouchableOpacity></Text>
->>>>>>> forgotpassword
           <TouchableOpacity  ><Text style={styles.Restbtn}>Rest Password</Text></TouchableOpacity> 
                    
       </View>
@@ -59,22 +55,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   signup: {
-<<<<<<< HEAD
-    height: 100,
-=======
     height: 0,
->>>>>>> forgotpassword
     width: 300,
     backgroundColor: "#F0F1F1",
     position: "absolute",
     zIndex: 1,
     marginTop: 300,
     marginLeft: 50,
-<<<<<<< HEAD
-    paddingBottom: 450,
-=======
     paddingBottom: 400,
->>>>>>> forgotpassword
   },
   title: {
     color: "#22719E",
