@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -7,6 +8,8 @@ import Chathistory from './components/Chathistory';
 import Edit from './components/Edit';
 import Profile from './components/Profile';
 
+=======
+>>>>>>> a345281c424383c3c05f46bcc3329badee0509ab
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import HomePage from "./components/HomePage";
@@ -19,14 +22,23 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
+<<<<<<< HEAD
 
+=======
+>>>>>>> a345281c424383c3c05f46bcc3329badee0509ab
 
 export default function App() {
   const Drawer = createDrawerNavigator();
 
   return (
 
+<<<<<<< HEAD
 
+=======
+   
+
+  
+>>>>>>> a345281c424383c3c05f46bcc3329badee0509ab
     <NavigationContainer>
       <Drawer.Navigator
         drawerContent={(props) => <ProfilePage {...props} />}
@@ -114,10 +126,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
+<<<<<<< HEAD
 
     justifyContent: 'start',
   },
 
 
 
+=======
+    justifyContent: 'start',
+  },
+
+>>>>>>> a345281c424383c3c05f46bcc3329badee0509ab
 });
