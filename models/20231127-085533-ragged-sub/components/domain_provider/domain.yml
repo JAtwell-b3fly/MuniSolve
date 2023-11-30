@@ -1,0 +1,142 @@
+version: '3.1'
+intents:
+- avoid_disconnections
+- benefits_early_pay_discount
+- cent_amt_rand_rate?
+- clearance_certificate
+- date_valuation_nb?
+- details_revenue_uses
+- disagree_objection_decision?
+- disconnected_non_payment
+- early_payment_all_bills
+- early_payment_discounts
+- early_payment_how
+- early_payments_discount
+- eg_property_rates_cal?
+- explain_prop_rates_cal?
+- goodbye
+- greet
+- how_electricity_reading
+- how_personal_details
+- how_utility_bill
+- indigent
+- indigent_application
+- indigent_subsidy
+- long_appeal_process?
+- market_value_valuation?
+- municipal_property_rates?
+- municipal_revenue_collect
+- municipality_dont_receive
+- nb_pay_bill_on_time
+- nlu_fallback
+- object_municipal_valuation?
+- process_objecting_municipal_valuation?
+- properties_inspected?
+- property_general_valuation_roll?
+- responsible_MPR_payment?
+- selected_physical_inspection?
+- specific_deadline_early_payments
+- submit_own_reading
+- thank
+- values_prop_valuation_roll?
+- what_meterReading
+- why_deposit_utility_bill
+- why_penalty_fee
+responses:
+  utter_greet:
+  - text: Hey! How can I assist you today?
+  utter_thank:
+  - text: You are welcome. It was my pleasure to assist you
+  utter_default_response:
+  - text: |-
+      I do not completely understand what you are asking or requesting. Here are some options I could assist with:
+      1. Indigent Information
+      2. Blocked meter
+      3. Municipal paymentn 4. Calculating Rates
+       5. Early Payment Discounts
+       6. Municipal Revenue Collection
+  utter_what_meterReading:
+  - text: Estimations are employed when physical readings are unavailable. Billing will show interim on your municipal statement for estimated usage. Once physical readings are obtained, estimations are credited to your account. Actual consumption is then billed accordingly.
+  utter_how_electricity_reading:
+  - text: Electrical meters have main digits displaying Kw Hours used (in black and white) and also one or two secondary numbers (in white and red), displaying fractions of the Kw Hours used. The fractions in white and red may be directly on the right of the black and white numbers or below to the right. When taking your reading you MUST IGNORE the numbers in RED AND WHITE and only use the BLACK AND WHITE numbers.
+  utter_submit_own_reading:
+  - text: |-
+      Your reading together with Municipal account number must be emailed to or submitted via telephone to the Sol Plaatje Municipality Accounts Department. Alternatively call in your readings and ask for the Municipal Accounts Department at 053 830 6911 or make use of readings@solplaatje.org.za. You could also submit your own readings using their application. 
+      KEEP IN MIND: This needs to be done between the 5th and 19th of every month.
+  utter_pay_utility_bill:
+  - text: Please visit our web site www.solplaatje.org.za to find all the payment options including online, by phone and through electronic transfers. When making use of these service provider, payment should be made at least four working days before the due date to enable the payment to be processed and to qualify for the incentive discount. Easy pay and pay@ numbers reflect on your monthly statements.
+  utter_clearance_certificate:
+  - text: To affect the transfer of any property from one owner to another, the Registrar of Deeds requires a clearance certificate which is obtained by the attorneys at the Rates Department. The clearance does not include any water consumption after the clearance request and owner will be liable for the final water consumption billing.
+  utter_why_deposit_utility_bill:
+  - text: Deposit stay with the property address and is credited towards the final billing. Any remaining credit can be refunded or transferred to any of your other Sol Plaatje accounts. The deposit needs to be paid in full, before any services can be provided. Deposit are determined by Council annually as part of the budget process. Different deposits may be charged accroding to the type and use of the property.
+  utter_why_penalty_fee:
+  - text: If your Municipal Account it owing and you have no arrangements in place with the Municipality, your electricity will be blocked / disconnected and a penalty fee will be charged on your account. Please conatact our Credit Control Section and make the necessary arrangements for electricity to be reconnected. Please enter into an arrangement to avoid penalty fees.
+  utter_how_personal_details:
+  - text: Access the profile screen on the application to update your personal details accordingly. Alternatively, please visit our web site www.solplaatje.org.za and scroll to the Resident column. Choose the Update your contact details on the dropdown list and follow the easy steps.
+  utter_indigent:
+  - text: An indigent refers to a person who is extremely poor, lacking the basic necessities of life, such as food, shelter, and clothing. It is often used to describe someone who is in a state of poverty and destitution, often unable to provide for their essential needs. Indigents consists of child headed households.
+  utter_indigent_subsidy:
+  - text: 50 units of electricity. 6 Kl of subsidized water per month. Fully subsidized sanitation charges. Fully subsidized refuse removal charges.
+  utter_indigent_application:
+  - text: |-
+      Certified copies of IDs of all children living in the household. A letter from ward councillor confirming that the children do not have parents or a guardian looking after them. A letter from social services confirming that children are supported through other means. A councillor or the eldest of the household can submit documents to Indigent Offices for capturing and verification will take place immediately. Total household income of less than R 4 500.00. Household is dependant on old age grant received by 3 or less. 
+      KEEP IN MIND: Child Support Grant is not included in the determination of household income.
+  utter_market_value_valuation?:
+  - text: Market value is the most probable price that a property would realize on the date of valuation if sold in the open market by a willing seller to a willing buyer.
+  utter_property_general_valuation_roll?:
+  - text: The municipal valuer, along with professional valuers, statistical analysts, data collectors, and support staff, produce property values on the General Valuation Roll.
+  utter_properties_inspected?:
+  - text: Site inspections of properties are not compulsory, but they may be conducted when the information in the valuations database is doubtful or when changes have occurred.
+  utter_explain_prop_rates_cal?:
+  - text: Property rates are calculated by multiplying the market value of the property by a cent amount in the rand rate determined by the municipal council.
+  utter_eg_property_rates_cal?:
+  - text: Of course! If your property has a market value of R50,000 and the cent amount in the rand rate is R0.015, you'd pay R750 annually (R50,000 x R0.015). If it's a residential property, the first R15,000 of the market value is deducted before applying the rate.
+  utter_cent_amt_rand_rate?:
+  - text: The municipal council sets the cent amount in the rand rate after considering public comments and inputs during the budget and rates policy approval process.
+  utter_municipal_property_rates?:
+  - text: The Municipal Property Rates Act is a national law that regulates how municipalities value and rate properties within their boundaries.
+  utter_responsible_MPR_payment?:
+  - text: All owners of rateable properties are liable for the payment of municipal property rates.
+  utter_object_municipal_valuation?:
+  - text: During the official objection period, you can object to any information on the valuation roll. You'll need to support your objection, and it must be submitted on the prescribed objection form.
+  utter_date_valuation_nb?:
+  - text: The date of valuation is crucial because it determines the market value of properties and is used as a reference for calculating property rates.
+  utter_values_prop_valuation_roll?:
+  - text: Municipal valuers, with the assistance of professional valuers and support staff, are responsible for determining the property values on the Valuation Rolls.
+  utter_selected_physical_inspection?:
+  - text: Properties are selected for physical inspection when there is doubt about the information on the valuation database or when significant changes have occurred.
+  utter_process_objecting_municipal_valuation?:
+  - text: You can object during the official objection period, providing grounds for your objection. Your objection will be assessed based on the evidence you provide.
+  utter_disagree_objection_decision?:
+  - text: You can appeal the objection decision to the Valuation Appeal Board, which is an independent body that reviews such cases. Appeals should be made within a specified time frame.
+  utter_long_appeal_process?:
+  - text: The appeal process typically involves a hearing before the Valuation Appeal Board, and it may take several weeks or months to reach a resolution.
+  utter_early_payment_discounts:
+  - text: Early payment discounts are incentives offered by the municipality for prompt payment of bills. If you pay your account in full and on time, you can receive a 10% discount, which can add up to significant savings over time.
+  utter_early_payment_how:
+  - text: The early payment discount is based on the total amount of your account bill. If, for instance, your monthly bill is $100, paying on time earns you a $10 discount. Over 12 months, this equates to one month's bill, providing you with savings.
+  utter_specific_deadline_early_payments:
+  - text: Yes, you need to make the payment before the specified due date to qualify for the early payment discount. Paying after the due date may result in the loss of the discount.
+  utter_early_payment_all_bills:
+  - text: Early payment discounts are typically applied to a wide range of bills, including rates, refuse removal, and sanitation fees. However, it's best to check with the municipality for specific details on eligible bills.
+  utter_early_payments_discount:
+  - text: To make early payments and receive the discount, ensure you pay your bills in full before the due date. Many payment methods are available, such as online payments, in-person payments, or automatic deductions from your bank account.
+  utter_benefits_early_pay_discount:
+  - text: The primary benefit of early payment discounts is the money you save. Over time, these discounts can add up to significant cost savings. Additionally, timely payments help you avoid late fees and ensure you remain in good standing with the municipality.
+  utter_municipal_revenue_collect:
+  - text: The municipality collects revenue primarily through property rates, service fees, and other charges. This revenue is crucial for funding essential services like water, electricity, sanitation, and more.
+  utter_details_revenue_uses:
+  - text: The revenue collected by the municipality is used to maintain and improve essential services for the community. It funds things like infrastructure maintenance, service providers like Eskom, and service delivery initiatives.
+  utter_nb_pay_bill_on_time:
+  - text: Timely bill payments are essential for the municipality to continue providing services. Delinquent accounts can result in service interruptions and may lead to disputes with service providers, potentially affecting the entire community.
+  utter_municipality_dont_receive:
+  - text: Non-payment by customers can have severe consequences, including arrears with service providers like Eskom. This could lead to disputes and potentially result in service interruptions, such as a total blackout of electricity supply.
+  utter_disconnected_non_payment:
+  - text: Yes, when services are lawfully disconnected due to non-payment, it can have significant financial implications for the municipality. For example, they mentioned collecting over R12 million in three days when services are disconnected.
+  utter_avoid_disconnections:
+  - text: One way to avoid service disconnections is by taking advantage of options such as early payment discounts and making arrangements to pay off arrear debt. These options help prevent service interruptions.
+  utter_goodbye:
+  - text: Bye
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

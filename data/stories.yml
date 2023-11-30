@@ -1,204 +1,135 @@
 version: "3.1"
 
 stories:
-
-- story: happy path
+  
+- story: Say goodbye anytime the user says goodbye
   steps:
-  - intent: greet
-  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: no_response_to_helped
+  - action: utter_no_response_to_helped
+  - intent: yes_response
+  - action: utter_yes_response_assistance
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: no_response_to_helped
+  - action: utter_no_response_assistance
+  - intent: yes_response
+  - action: utter_yes_response
 
-- story: express thanks
+- story: express thanks no assistance no further help
   steps: 
   - intent: thank
   - action: utter_thank
+  - intent: no_response_to_helped_1
+  - action: utter_no_response_to_helped
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: no_response_to_helped_2
+  - action: utter_no_response_assistance
   
-- story: personal details
+- story: express thanks no assistance yes further help
+  steps: 
+  - intent: thank
+  - action: utter_thank
+  - intent: no_response_to_helped_1
+  - action: utter_no_response_to_helped
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: yes_response_2
+  - action: utter_yes_response
+  
+- story: express thanks yes assistance no further help
+  steps: 
+  - intent: thank
+  - action: utter_thank
+  - intent: yes_response_1
+  - action: utter_yes_response_assistance
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: no_response_to_helped_2
+  - action: utter_no_response_assistance
+  
+- story: express thanks yes assistance yes further help
+  steps: 
+  - intent: thank
+  - action: utter_thank
+  - intent: yes_response_1
+  - action: utter_yes_response_assistance
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: yes_response_2
+  - action: utter_yes_response
+  
+- story: how to avoid blocked meterbox
   steps:
-  - intent: how_personal_details
-  - action: utter_how_personal_details
-
-- story: penalty fee
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: blocked_meter-box
+  - action: utter_blocked_meter-box
+  - intent: avoid_blocked_meterbox
+  - action: utter_avoid_blocked_meterbox
+  
+- story: what happens when you dont pay electricity
   steps:
-  - intent: why_penalty_fee
-  - action: utter_why_penalty_fee
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: unpaid_electricity_selected
+  - action: utter_unpaid_electricity_selected
+  - intent: what_happens_dont_pay
+  - action: utter_what_happens_dont_pay
   
-- story: certificate clearance
+- story: how to pay electricity fees
   steps:
-  - intent: clearance_certificate
-  - action: utter_clearance_certificate
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: unpaid_electricity_selected
+  - action: utter_unpaid_electricity_selected
+  - intent: how_pay_electricity
+  - action: utter_how_pay_electricity
   
-- story: utility
+- story: my meterbox is blocked
   steps:
-  - intent: how_utility_bill
-  - action: utter_pay_utility_bill
-  - intent: why_deposit_utility_bill
-  - action: utter_why_deposit_utility_bill
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: blocked_meter-box
+  - action: utter_blocked_meter-box
+  - intent: meterbox_blocked
+  - action: utter_meterbox_blocked
   
-- story: meter reading
+- story: how do I unblock my meterbox
   steps:
-  - intent: what_meterReading
-  - action: utter_what_meterReading
-  - intent: how_electricity_reading
-  - action: utter_how_electricity_reading
-  - intent: submit_own_reading
-  - action: utter_submit_own_reading
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: blocked_meter-box
+  - action: utter_blocked_meter-box
+  - intent: unblock_meter-box
+  - action: utter_unblock_meter-box
   
-- story: indigent
+- story: loadshedding schedule
   steps:
-  - intent: indigent
-  - action: utter_indigent
-  - intent: indigent_subsidy
-  - action: utter_indigent_subsidy
-  - intent: indigent_application
-  - action: utter_indigent_application
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: loadshedding_schedule
+  - action: utter_loadshedding_schedule
   
-- story: understanding property valuation
+- story: updating profile information
   steps:
-  - intent: market_value_valuation?
-  - action: utter_market_value_valuation?
-  - intent: property_general_valuation_roll?
-  - action: utter_property_general_valuation_roll?
-  - intent: properties_inspected?
-  - action: utter_properties_inspected?
+  - intent: general_selected
+  - action: utter_general_selected
+  - intent: update_profile_info
+  - action: utter_update_profile_info
   
-#- story: rebates and special rates
-#  steps:
-#  - intent: rebate_property_pensioner?
-#  - action: utter_rebate_property_pensioner?
-#  - intent: rebates_specific_property?
-#  - action: utter_rebates_specific_property?
-#  - intent: multi_purpose_categories_rates?
-  
-#- story: supplementary valuation roll
-#  steps:
-#  - intent: supp_valuation_roll?
-#  - action: utter_supp_valuation_roll?
-#  - intent: receive_notice_valuation?
-#  - action: utter_receive_notice_valuation?
-#  - intent: rate_cal_res_properties?
-#  - action: utter_rate_cal_res_properties?
-  
-#- story: understanding property categories
-#  steps:
-#  - intent: diff_categories_rating?
-#  - action: utter_diff_categories_rating?
-#  - intent: category_property_determined?
-#  - action: utter_category_property_determined?
-#  - intent: exceptions_property_categories?
-#  - action: utter_exceptions_property_categories?
-
-- story: property rates calculation
+- story: what is munisolve
   steps:
-  - intent: explain_prop_rates_cal?
-  - action: utter_explain_prop_rates_cal?
-  - intent: eg_property_rates_cal?
-  - action: utter_eg_property_rates_cal?
-  - intent: cent_amt_rand_rate?
-  - action: utter_cent_amt_rand_rate?
+  - intent: general_selected
+  - action: utter_general_selected
+  - intent: what_munisolve
+  - action: utter_what_munisolve
   
-- story: valuation appeal and municipal property rates act
+- story: accessing the chat history
   steps:
-  - intent: municipal_property_rates?
-  - action: utter_municipal_property_rates?
-  - intent: responsible_MPR_payment?
-  - action: utter_responsible_MPR_payment?
-  - intent: object_municipal_valuation?
-  - action: utter_object_municipal_valuation?
-  
-#- story: multi_purpose properties and categories
-#  steps: 
-#  - intent: use_property_multi_purpose?
-#  - action: utter_use_property_multi_purpose?
-#  - intent: eg_property_categories?
-#  - action: utter_eg_property_categories?
-  
-#- story: valuation roll updates and supplementary valuation roll
-#  steps:
-#  - intent: general_valuation_roll_updated?
-#  - action: utter_general_valuation_roll_updated?
-#  - intent: what_supplementary_valuation_roll?
-#  - action: utter_what_supplementary_valuation_roll?
-#  - intent: notices_diff_supplementary_valuation_roll?
-#  - action: utter_notices_diff_supplementary_valuation_roll?
-  
-- story: date of valuation and importance
-  steps:
-  - intent: date_valuation_nb?
-  - action: utter_date_valuation_nb?
-  - intent: values_prop_valuation_roll?
-  - action: utter_values_prop_valuation_roll?
-  - intent: selected_physical_inspection?
-  - action: utter_selected_physical_inspection?
-  
-- story: municipal valuation objections and appeals
-  steps:
-  - intent: process_objecting_municipal_valuation?
-  - action: utter_process_objecting_municipal_valuation?
-  - intent: disagree_objection_decision?
-  - action: utter_disagree_objection_decision?
-  - intent: long_appeal_process?
-  - action: utter_long_appeal_process?
-  
-#- story: property rates and categories
-#  steps:
-#  - intent: property_rates_categories
-#  - action: utter_property_rates_categories
-#  - intent: explain_property_category
-#  - action: utter_explain_property_category
-#  - intent: incorrect_property_category
-#  - action: utter_incorrect_property_category
-#  - intent: exceptions_properties
-#  - action: utter_exceptions_properties
-#  - intent: process_objecting_property_category
-#  - action: utter_process_objecting_property_category
-#  - intent: explain_appeal_property_category_objections
-#  - action: utter_explain_appeal_property_category_objections
-#  - intent: more_quez_about_property
-#  - action: utter_more_quez_about_property
-
-#- story: the role of the valuation appeal board
-#  steps:
-#  - intent: valuation_appeal_board
-#  - action: utter_valuation_appeal_board
-#  - intent: vab_role
-#  - action: utter_vab_role
-#  - intent: lodge_appeal_vab
-#  - action: utter_lodge_appeal_vab
-#  - intent: vab_hearing
-#  - action: utter_vab_hearing
-#  - intent: long_resolve_appeal
-#  - action: utter_long_resolve_appeal
-#  - intent: vabs_final_decision
-#  - action: utter_vabs_final_decision
-#  - intent: more_questions_vab_appeal
-#  - action: utter_more_questions_vab_appeal
-  
-- story: early payment discounts
-  steps:
-  - intent: early_payment_discounts
-  - action: utter_early_payment_discounts
-  - intent: early_payment_how
-  - action: utter_early_payment_how
-  - intent: specific_deadline_early_payments
-  - action: utter_specific_deadline_early_payments
-  - intent: early_payment_all_bills
-  - action: utter_early_payment_all_bills
-  - intent: early_payments_discount
-  - action: utter_early_payments_discount
-  - intent: benefits_early_pay_discount
-  - action: utter_benefits_early_pay_discount
-  
-- story: municipalitys revenue collection and service funding
-  steps:
-  - intent: municipal_revenue_collect
-  - action: utter_municipal_revenue_collect
-  - intent: details_revenue_uses
-  - action: utter_details_revenue_uses
-  - intent: nb_pay_bill_on_time
-  - action: utter_nb_pay_bill_on_time
-  - intent: municipality_dont_receive
-  - action: utter_municipality_dont_receive
-  - intent: disconnected_non_payment
-  - action: utter_disconnected_non_payment
-  - intent: avoid_disconnections
-  - action: utter_avoid_disconnections
+  - intent: general_selected
+  - action: utter_general_selected
+  - intent: accessing_chat_history
+  - action: utter_accessing_chat_history

@@ -2,15 +2,10 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: happy path
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
-
-- rule: Say pleasure when the user says thanks
-  steps:
-  - intent: thank
-  - action: utter_thank
+  - intent: greet
+  - action: utter_greet
   
 - rule: Handle unknown intents
   steps:

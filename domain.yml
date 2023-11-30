@@ -4,294 +4,93 @@ intents:
   - greet
   - goodbye
   - thank
+  - no_response_to_helped_1
+  - no_response_to_helped_2
+  - rating_number
+  - yes_response_1
+  - yes_response_2
   - nlu_fallback
-  #- yes_response
-  - what_meterReading
-  - how_electricity_reading
-  - submit_own_reading
-  - how_utility_bill
-  #- how_incentive_payment
-  - clearance_certificate
-  #- change_ownership
-  - why_deposit_utility_bill
-  - why_penalty_fee
-  - how_personal_details
-  - indigent
-  - indigent_subsidy
-  - indigent_application
-  - market_value_valuation?
-  - property_general_valuation_roll?
-  - properties_inspected?
-  #- rebate_property_pensioner?
-  #- rebates_specific_property?
-  #- multi_purpose_categories_rates?
-  #- supp_valuation_roll?
-  #- receive_notice_valuation?
-  #- rate_cal_res_properties?
-  #- diff_categories_rating?
-  #- category_property_determined?
-  #- exceptions_property_categories?
-  - explain_prop_rates_cal?
-  - eg_property_rates_cal?
-  - cent_amt_rand_rate?
-  - municipal_property_rates?
-  - responsible_MPR_payment?
-  - object_municipal_valuation?
-  #- use_property_multi_purpose?
-  #- eg_property_categories?
-  #- general_valuation_roll_updated?
-  #- what_supplementary_valuation_roll?
-  #- notices_diff_supplementary_valuation_roll?
-  - date_valuation_nb?
-  - values_prop_valuation_roll?
-  - selected_physical_inspection?
-  - process_objecting_municipal_valuation?
-  - disagree_objection_decision?
-  - long_appeal_process?
-  #- property_rates_categories
-  #- explain_property_category
-  #- incorrect_property_category
-  #- exceptions_properties
-  #- process_objecting_property_category
-  #- explain_appeal_property_category_objections
-  #- more_quez_about_property
-  #- valuation_appeal_board
-  #- vab_role
-  #- lodge_appeal_vab
-  #- vab_hearing
-  #- long_resolve_appeal
-  #- vabs_final_decision
-  #- more_questions_vab_appeal
-  - early_payment_discounts
-  - early_payment_how
-  - specific_deadline_early_payments
-  - early_payment_all_bills
-  - early_payments_discount
-  - benefits_early_pay_discount
-  - municipal_revenue_collect
-  - details_revenue_uses
-  - nb_pay_bill_on_time
-  - municipality_dont_receive
-  - disconnected_non_payment
-  - avoid_disconnections
+  - electricity_selected
+  - blocked_meter-box
+  - avoid_blocked_meterbox
+  - unpaid_electricity_selected
+  - what_happens_dont_pay
+  - how_pay_electricity
+  - meterbox_blocked
+  - unblock_meter-box
+  - loadshedding_schedule
+  - update_profile_info
+  - what_munisolve
+  - accessing_chat_history
+  - general_selected
 
 responses:
   utter_greet:
-    - text: "Hey! How can I assist you today?"
+    - text: "Hey! How can I assist you today?\n1. Electricity Questions\n2. General Questions"
   
   utter_thank:
-    - text: "You are welcome. It was my pleasure to assist you"
+    - text: "You are welcome. Were you helped?"
+    
+  utter_no_response_to_helped:
+    - text: "I apologise for not being able to assist. Please contact us for further assistance.\n Kindly rate how helpful this session was:\n1\n2\n3\n4\n5"
+    
+  utter_no_response_assistance:
+    - text: "I understand. Until next time. Bye."
+    
+  utter_yes_response_assistance:
+    - text: "I am glad I could assist you.\nKindly rate how helpful this session was:\n1\n2\n3\n4\n5"
+    
+  utter_rating_number:
+    - text: "Thank you for your feedback.\nDo you need assistance with anything else."
+    
+  utter_yes_response:
+    - text: "How can I assist you further? \n1. Electricity Questions\n2. General Questions"
     
   utter_default_response:
-  - text: "I do not completely understand what you are asking or requesting. Here are some options I could assist with:\n1. Indigent Information\n2. Blocked meter\n3. Municipal paymentn 4. Calculating Rates\n 5. Early Payment Discounts\n 6. Municipal Revenue Collection"
-  
-  utter_what_meterReading:
-    - text: "Estimations are employed when physical readings are unavailable. Billing will show interim on your municipal statement for estimated usage. Once physical readings are obtained, estimations are credited to your account. Actual consumption is then billed accordingly."
-    
-  utter_how_electricity_reading:
-    - text: "Electrical meters have main digits displaying Kw Hours used (in black and white) and also one or two secondary numbers (in white and red), displaying fractions of the Kw Hours used. The fractions in white and red may be directly on the right of the black and white numbers or below to the right. When taking your reading you MUST IGNORE the numbers in RED AND WHITE and only use the BLACK AND WHITE numbers."
-    
-  utter_submit_own_reading:
-    - text: "Your reading together with Municipal account number must be emailed to or submitted via telephone to the Sol Plaatje Municipality Accounts Department. Alternatively call in your readings and ask for the Municipal Accounts Department at 053 830 6911 or make use of readings@solplaatje.org.za. You could also submit your own readings using their application. \nKEEP IN MIND: This needs to be done between the 5th and 19th of every month."
-    
-  utter_pay_utility_bill:
-    - text: "Please visit our web site www.solplaatje.org.za to find all the payment options including online, by phone and through electronic transfers. When making use of these service provider, payment should be made at least four working days before the due date to enable the payment to be processed and to qualify for the incentive discount. Easy pay and pay@ numbers reflect on your monthly statements."
-    
-  #utter_how_incentive_payment:
-  #  - text: "Incentive payment is a early payment discount of 10% on rates, sewerage, refuse and water every time you pay your account in full on or before the due date indicated on your monthly billing statement."
-    
-  utter_clearance_certificate:
-    - text: "To affect the transfer of any property from one owner to another, the Registrar of Deeds requires a clearance certificate which is obtained by the attorneys at the Rates Department. The clearance does not include any water consumption after the clearance request and owner will be liable for the final water consumption billing."
-    
-  #utter_change_ownership:
-  #  - text: "Termindation form needs to be completed by the seller accompanied by the readings taken when property was handed ober to new owner. New owner needs to complete and sign a service aggreement with Sol Plaatje, and the required deposit will be allocated to the account. If they fail to sign on for the services the electricity service will be disconnected."
-    
-  utter_why_deposit_utility_bill:
-   - text: "Deposit stay with the property address and is credited towards the final billing. Any remaining credit can be refunded or transferred to any of your other Sol Plaatje accounts. The deposit needs to be paid in full, before any services can be provided. Deposit are determined by Council annually as part of the budget process. Different deposits may be charged accroding to the type and use of the property."
-   
-  utter_why_penalty_fee:
-   - text: "If your Municipal Account it owing and you have no arrangements in place with the Municipality, your electricity will be blocked / disconnected and a penalty fee will be charged on your account. Please conatact our Credit Control Section and make the necessary arrangements for electricity to be reconnected. Please enter into an arrangement to avoid penalty fees."
-   
-  utter_how_personal_details:
-   - text: "Access the profile screen on the application to update your personal details accordingly. Alternatively, please visit our web site www.solplaatje.org.za and scroll to the Resident column. Choose the Update your contact details on the dropdown list and follow the easy steps."
-   
-  utter_indigent:
-   - text: "An indigent refers to a person who is extremely poor, lacking the basic necessities of life, such as food, shelter, and clothing. It is often used to describe someone who is in a state of poverty and destitution, often unable to provide for their essential needs. Indigents consists of child headed households."
-   
-  utter_indigent_subsidy:
-   - text: "50 units of electricity. 6 Kl of subsidized water per month. Fully subsidized sanitation charges. Fully subsidized refuse removal charges."
-   
-  utter_indigent_application:
-   - text: "Certified copies of IDs of all children living in the household. A letter from ward councillor confirming that the children do not have parents or a guardian looking after them. A letter from social services confirming that children are supported through other means. A councillor or the eldest of the household can submit documents to Indigent Offices for capturing and verification will take place immediately. Total household income of less than R 4 500.00. Household is dependant on old age grant received by 3 or less. \nKEEP IN MIND: Child Support Grant is not included in the determination of household income."
-   
-  utter_market_value_valuation?:
-   - text: "Market value is the most probable price that a property would realize on the date of valuation if sold in the open market by a willing seller to a willing buyer."
-   
-  utter_property_general_valuation_roll?:
-   - text: "The municipal valuer, along with professional valuers, statistical analysts, data collectors, and support staff, produce property values on the General Valuation Roll."
-   
-  utter_properties_inspected?:
-   - text: "Site inspections of properties are not compulsory, but they may be conducted when the information in the valuations database is doubtful or when changes have occurred."
-   
-  #utter_rebate_property_pensioner?:
-  # - text: "Yes, pensioners can apply for rates rebates, and discounts are available for qualifying individuals."
-   
-  #utter_rebates_specific_property?:
-  # - text: "Yes, there are rebates for certain categories of properties and property owners. The criteria include factors like income, property usage, and more."
-   
-  #utter_multi_purpose_categories_rates?:
-  # - text: "Multi-purpose properties are categorized based on their dominant use, such as industrial/commercial, mining, or other. The rates are determined accordingly."
-   
-  #utter_supp_valuation_roll?:
-  # - text: "A Supplementary Valuation Roll is used to update the general valuation roll with properties that were omitted, included, subdivided, had significant value changes, or for other exceptional reasons."
-   
-  #utter_receive_notice_valuation?:
-  # - text: "Each notice corresponds to a property revaluation within the Supplementary Valuation Roll."
-   
-  #utter_rate_cal_res_properties?:
-  # - text: "The rate for residential properties is applied after deducting the first R15,000 from the market value and then calculating the rate-in-the-rand."
-   
-  #utter_diff_categories_rating?:
-  # - text: "There are various property categories, including residential, vacant residential, industrial, vacant industrial, business/commercial, and more, each with its specific rating criteria."
-   
-  #utter_category_property_determined?:
-  # - text: "The property category is determined based on the actual use of the property. If a property is vacant, it is categorized as per its permitted use."
-   
-  #utter_exceptions_property_categories?:
-  # - text: "Yes, properties in rural areas used for specific purposes like solar farms or agriculture may qualify for exceptions. Creches and guest houses can also receive rebates."
-  
-  utter_explain_prop_rates_cal?:
-   - text: "Property rates are calculated by multiplying the market value of the property by a cent amount in the rand rate determined by the municipal council."
-   
-  utter_eg_property_rates_cal?:
-   - text: "Of course! If your property has a market value of R50,000 and the cent amount in the rand rate is R0.015, you'd pay R750 annually (R50,000 x R0.015). If it's a residential property, the first R15,000 of the market value is deducted before applying the rate."
-   
-  utter_cent_amt_rand_rate?:
-   - text: "The municipal council sets the cent amount in the rand rate after considering public comments and inputs during the budget and rates policy approval process."
-   
-  utter_municipal_property_rates?:
-   - text: "The Municipal Property Rates Act is a national law that regulates how municipalities value and rate properties within their boundaries."
-   
-  utter_responsible_MPR_payment?:
-   - text: "All owners of rateable properties are liable for the payment of municipal property rates."
-   
-  utter_object_municipal_valuation?:
-   - text: "During the official objection period, you can object to any information on the valuation roll. You'll need to support your objection, and it must be submitted on the prescribed objection form."
-   
-  #utter_use_property_multi_purpose?: 
-  # - text: "For properties with multiple purposes, the property use is categorized based on the dominant use, either industrial/commercial or mining. If the dominant use is different, an apportionment is used for valuation."
-   
-  #utter_eg_property_categories?: 
-  # - text: "Sure, additional categories include vacant business and commercial properties, agricultural properties, and properties owned by public benefit organizations used for specified public benefit activities."
-   
-  #utter_general_valuation_roll_updated?:
-  # - text: "Typically, the General Valuation Roll is updated every four years to minimize the impact of property value fluctuations."
-   
-  #utter_what_supplementary_valuation_roll?:
-  # - text: "A Supplementary Valuation Roll is used to update the general valuation roll. It includes properties omitted from the previous valuation, newly added properties, or properties with substantial value changes."
-   
-  #utter_notices_diff_supplementary_valuation_roll?:
-  # - text: "If your property underwent multiple changes or corrections, you'd receive multiple notices, each reflecting a different valuation based on the changes made."
-   
-  utter_date_valuation_nb?:
-   - text: "The date of valuation is crucial because it determines the market value of properties and is used as a reference for calculating property rates."
-   
-  utter_values_prop_valuation_roll?:
-   - text: "Municipal valuers, with the assistance of professional valuers and support staff, are responsible for determining the property values on the Valuation Rolls."
-   
-  utter_selected_physical_inspection?:
-   - text: "Properties are selected for physical inspection when there is doubt about the information on the valuation database or when significant changes have occurred."
-   
-  utter_process_objecting_municipal_valuation?:
-   - text: "You can object during the official objection period, providing grounds for your objection. Your objection will be assessed based on the evidence you provide."
-   
-  utter_disagree_objection_decision?:
-   - text: "You can appeal the objection decision to the Valuation Appeal Board, which is an independent body that reviews such cases. Appeals should be made within a specified time frame."
-  
-  utter_long_appeal_process?:
-   - text: "The appeal process typically involves a hearing before the Valuation Appeal Board, and it may take several weeks or months to reach a resolution."
-   
-  #utter_property_rates_categories:
-  # - text: "Property rates are the fees property owners pay to the municipality. These rates are determined by the property's category. For example, residential properties have one category, and vacant residential properties have another. The same goes for industrial, commercial, and mining properties. Each category has a specific rate applied to it."
-   
-  #utter_explain_property_category:
-  # - text: "Of course! Your property's category is determined based on its actual use. For instance, if your property is used for residential purposes, it falls into the residential category. However, if your property is vacant and zoned for commercial use, it would be in the vacant commercial category. The actual use of the property is a key factor."
-   
-  #utter_incorrect_property_category:
-  # - text: "If you disagree with your property's category, you have the option to object during the objection period. Providing evidence to support your objection is crucial, as the municipality reviews such objections."
-   
-  #utter_exceptions_properties:
-  # - text: "Yes, there are exceptions. For properties in rural areas used for industrial, commercial, mining, or residential purposes without municipal services, such as water and electricity, different rules may apply. Also, properties with unique uses, like creches and guest houses, can qualify for specific rebates to support small business enterprises."
-  
-  #utter_process_objecting_property_category:
-  # - text: "To object to your property's category, you should submit an objection during the official objection period. This should be done on the prescribed objection form. Make sure to include all supporting evidence for your objection. The municipality will then review your objection and inform you of the outcome."
-   
-  #utter_explain_appeal_property_category_objections:
-  # - text: "If you are not satisfied with the municipality's decision regarding your objection, you have the right to appeal. Appeals are heard by an independent appeal board. The appeal process involves a hearing where you can present your case. The board will make a decision regarding the property's category."
-   
-  #utter_more_quez_about_property:
-  # - text: "If you have additional questions or need further clarification, I recommend visiting the municipality's rates offices or contacting their customer service for detailed assistance."
-   
-  #utter_valuation_appeal_board:
-  # - text: "The Valuation Appeal Board (VAB) is an independent body appointed by the Northern Cape MEC for Local Government. It consists of a chairperson with legal qualifications and members with knowledge or experience in property valuations, including at least one valuer."
-   
- # utter_vab_role:
- #  - text: "The VAB's primary role is to review property valuation-related matters, including objections and appeals. If property owners are dissatisfied with municipal valuation decisions, they can appeal to the VAB. The VAB then conducts hearings and makes independent decisions based on the evidence presented."
-   
-  #utter_lodge_appeal_vab:
-  # - text: "To lodge an appeal, you must follow the instructions provided in the objection decision notice sent by the municipality. This notice will include details on how to submit an appeal, including the deadline and the required documentation."
-   
-  #utter_vab_hearing:
-  # - text: "During a VAB hearing, property owners and the municipality present their cases. Property owners have the opportunity to provide evidence supporting their appeal. The VAB carefully reviews the evidence and makes a decision regarding the property's valuation."
-   
- # utter_long_resolve_appeal:
- #  - text: "The time required to resolve an appeal can vary. It depends on factors such as the complexity of the case and the VAB's schedule. Typically, it may take several weeks or even a few months for the VAB to reach a decision."
-   
-  #utter_vabs_final_decision:
-  # - text: "Yes, the VAB's decision is considered final. It is an independent body, and its decisions are binding. Once the VAB has made a decision, there are limited avenues for further appeal."
-   
-  #utter_more_questions_vab_appeal:
-  # - text: "If you have additional questions or need more information about the Valuation Appeal Board or the appeal process, you can contact the municipality's offices or their customer service for further guidance."
-   
-  utter_early_payment_discounts:
-   - text: "Early payment discounts are incentives offered by the municipality for prompt payment of bills. If you pay your account in full and on time, you can receive a 10% discount, which can add up to significant savings over time."
-   
-  utter_early_payment_how:
-   - text: "The early payment discount is based on the total amount of your account bill. If, for instance, your monthly bill is $100, paying on time earns you a $10 discount. Over 12 months, this equates to one month's bill, providing you with savings."
-   
-  utter_specific_deadline_early_payments:
-   - text: "Yes, you need to make the payment before the specified due date to qualify for the early payment discount. Paying after the due date may result in the loss of the discount."
-   
-  utter_early_payment_all_bills: 
-   - text: "Early payment discounts are typically applied to a wide range of bills, including rates, refuse removal, and sanitation fees. However, it's best to check with the municipality for specific details on eligible bills."
-   
-  utter_early_payments_discount:
-   - text: "To make early payments and receive the discount, ensure you pay your bills in full before the due date. Many payment methods are available, such as online payments, in-person payments, or automatic deductions from your bank account."
-   
-  utter_benefits_early_pay_discount:
-   - text: "The primary benefit of early payment discounts is the money you save. Over time, these discounts can add up to significant cost savings. Additionally, timely payments help you avoid late fees and ensure you remain in good standing with the municipality."
-   
-  utter_municipal_revenue_collect:
-   - text: "The municipality collects revenue primarily through property rates, service fees, and other charges. This revenue is crucial for funding essential services like water, electricity, sanitation, and more."
-   
-  utter_details_revenue_uses:
-   - text: "The revenue collected by the municipality is used to maintain and improve essential services for the community. It funds things like infrastructure maintenance, service providers like Eskom, and service delivery initiatives."
-   
-  utter_nb_pay_bill_on_time:
-   - text: "Timely bill payments are essential for the municipality to continue providing services. Delinquent accounts can result in service interruptions and may lead to disputes with service providers, potentially affecting the entire community."
-   
-  utter_municipality_dont_receive:
-   - text: "Non-payment by customers can have severe consequences, including arrears with service providers like Eskom. This could lead to disputes and potentially result in service interruptions, such as a total blackout of electricity supply."
-   
-  utter_disconnected_non_payment:
-   - text: "Yes, when services are lawfully disconnected due to non-payment, it can have significant financial implications for the municipality. For example, they mentioned collecting over R12 million in three days when services are disconnected."
-   
-  utter_avoid_disconnections:
-   - text: "One way to avoid service disconnections is by taking advantage of options such as early payment discounts and making arrangements to pay off arrear debt. These options help prevent service interruptions."
+    - text: "I do not completely understand what you are asking or requesting. Here are some options I could assist with:\n1. Electricity Questions\n2. General Questions"
   
   utter_goodbye:
-    - text: "Bye"
-
+    - text: "Bye. Were you helped?"
+    
+  utter_electricity_selected:
+    - text: "You chose Electricity.\nWhat do you want to know more about?\n1. Blocked Meter-box\n2. Unpaid Electricity\n3. Loadshedding Schedule"
+    
+  utter_blocked_meter-box:
+    - text: "You chose Blocked Meter-box.\nWhat do you want to know more about?\n1. My meter-box is blocked\n2. How do I unblock my meter-box\n3. How do I avoid my meter-box from being blocked"
+    
+  utter_avoid_blocked_meterbox:
+    - text: "To avoid your meter-box from being blocked, consider the following:\n1. Pay your fees on time\n2. Monitor your electricity usage\n3. Ensure proper maintenance of your meter-box\n4. Contact us for assistance"
+    
+  utter_unpaid_electricity_selected: 
+    - text: "You chose Unpaid Electricity.\nWhat do you want to know more?\n1. What happens if I don't keep up with my payments\n2. How do I pay my electricity fees"
+    
+  utter_what_happens_dont_pay:
+    - text: "What happens if I don't keep up with my payments:\n1. Your meter-box will be blocked\n2. You will not be able to buy or use electricity in your home\n3. You will have to pay off a percentage of the outstanding amount to unblock it\n4. Contact us for assistance"
+    
+  utter_how_pay_electricity:
+    - text: "How do I pay my electricity:\n1. You have to visit you local municipality to arrange to settle outstanding payments\n2. Contact us for assistance"
+    
+  utter_meterbox_blocked:
+    - text: "Visit your nearest local government municipal office to settle the outstanding fees"
+    
+  utter_unblock_meter-box:
+    - text: "How do I unblock my meter-box:\n1. Visit your nearest municipality to settle the arrangement\n2. Pay your outstanding electricity fees at the municipality\n3. Contact us for further assistance"
+    
+  utter_loadshedding_schedule:
+    - text: "You chose Loadshedding Schedule:\n1. To see loadshedding schedules, use this link: https://loadshedding.eskom.co.za/\n2. Keep in mind that I cannot provide the exact schedules and stages for a location through the chat"
+    
+  utter_update_profile_info:
+    - text: "You chose Update Profile Information.\n1. Navigate to the Profile Icon\n2. Right click on it\n3. Select the edit icon to update your information\n4. Select the save button to save your changes"
+    
+  utter_what_munisolve:
+    - text: "What is MuniSolve:\n1. I am a chat-bot created to assist in provide information on your local government\n2. I was created using Rasa NLU\n3. I strictly assist in providing information pertaining to your local government only\n4. I am not human\n5. I am not a robot\n6. I am not Artificial Intelligence, but I am created using Machine Learning models"
+    
+  utter_accessing_chat_history:
+    - text: "Accessing Chat History:\n1. Navigate to the Profile Icon\n2. Right click on the Profile Icon\n3. Navigate to the Chat History Button\n4. Right click on the Chat History Button"
+    
+  utter_general_selected:
+    - text: "You chose General Questions.\nWhat do you want to know more about?\n1. Update Profile Information\n2. What is MuniSolve\n3. Accessing Chat History"
+    
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
