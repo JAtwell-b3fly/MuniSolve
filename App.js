@@ -12,7 +12,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 
-
 export default function App() {
   const Drawer = createDrawerNavigator();
 
