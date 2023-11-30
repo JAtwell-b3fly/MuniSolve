@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Chathistory from './components/Chathistory';
 
 export default function App() {
@@ -14,6 +15,14 @@ export default function App() {
     <View style={styles.container}>
       <Login/>
 >>>>>>> login
+=======
+
+import Signup from './components/signup';
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Signup/>
+>>>>>>> signup
       <StatusBar style="auto" />
     </View>
   );
