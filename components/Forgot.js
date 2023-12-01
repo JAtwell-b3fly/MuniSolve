@@ -140,14 +140,16 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   signup: {
+
     height: 0,
+
     width: 300,
     backgroundColor: "#F0F1F1",
     position: "absolute",
     zIndex: 1,
     marginTop: 300,
     marginLeft: 50,
-    paddingBottom: 400,
+    paddingBottom: 450,
   },
   title: {
     color: "#22719E",

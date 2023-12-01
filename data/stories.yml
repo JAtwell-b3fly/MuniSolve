@@ -1,0 +1,165 @@
+version: "3.1"
+
+stories:
+  
+- story: Say goodbye anytime the user says goodbye no assistance no further help
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: no_response_to_helped_not_satisfied
+  - action: utter_no_response_to_helped
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: no_response_to_helped_fine
+  - action: utter_no_response_assistance
+  
+- story: Say goodbye anytime the user says goodbye no assistance yes further help
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: no_response_to_helped_not_satisfied
+  - action: utter_no_response_to_helped
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: yes_response_2
+  - action: utter_yes_response
+  
+- story: Say goodbye anytime the user says goodbye yes assistance no further help
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: yes_response_1
+  - action: utter_yes_response_assistance
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: no_response_to_helped_fine
+  - action: utter_no_response_assistance
+  
+- story: Say goodbye anytime the user says goodbye yes assistance yes further help
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: yes_response_1
+  - action: utter_yes_response_assistance
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: yes_response_2
+  - action: utter_yes_response
+  
+
+- story: express thanks no assistance no further help
+  steps: 
+  - intent: thank
+  - action: utter_thank
+  - intent: no_response_to_helped_not_satisfied
+  - action: utter_no_response_to_helped
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: no_response_to_helped_fine
+  - action: utter_no_response_assistance
+  
+- story: express thanks no assistance yes further help
+  steps: 
+  - intent: thank
+  - action: utter_thank
+  - intent: no_response_to_helped_not_satisfied
+  - action: utter_no_response_to_helped
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: yes_response_2
+  - action: utter_yes_response
+  
+- story: express thanks yes assistance no further help
+  steps: 
+  - intent: thank
+  - action: utter_thank
+  - intent: yes_response_1
+  - action: utter_yes_response_assistance
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: no_response_to_helped_fine
+  - action: utter_no_response_assistance
+  
+- story: express thanks yes assistance yes further help
+  steps: 
+  - intent: thank
+  - action: utter_thank
+  - intent: yes_response_1
+  - action: utter_yes_response_assistance
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: yes_response_2
+  - action: utter_yes_response
+  
+- story: how to avoid blocked meterbox
+  steps:
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: blocked_meter-box
+  - action: utter_blocked_meter-box
+  - intent: avoid_blocked_meterbox
+  - action: utter_avoid_blocked_meterbox
+  
+- story: what happens when you dont pay electricity
+  steps:
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: unpaid_electricity_selected
+  - action: utter_unpaid_electricity_selected
+  - intent: what_happens_dont_pay
+  - action: utter_what_happens_dont_pay
+  
+- story: how to pay electricity fees
+  steps:
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: unpaid_electricity_selected
+  - action: utter_unpaid_electricity_selected
+  - intent: how_pay_electricity
+  - action: utter_how_pay_electricity
+  
+- story: my meterbox is blocked
+  steps:
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: blocked_meter-box
+  - action: utter_blocked_meter-box
+  - intent: meterbox_blocked
+  - action: utter_meterbox_blocked
+  
+- story: how do I unblock my meterbox
+  steps:
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: blocked_meter-box
+  - action: utter_blocked_meter-box
+  - intent: unblock_meter-box
+  - action: utter_unblock_meter-box
+  
+- story: loadshedding schedule
+  steps:
+  - intent: electricity_selected
+  - action: utter_electricity_selected
+  - intent: loadshedding_schedule
+  - action: utter_loadshedding_schedule
+  
+- story: updating profile information
+  steps:
+  - intent: general_selected
+  - action: utter_general_selected
+  - intent: update_profile_info
+  - action: utter_update_profile_info
+  
+- story: what is munisolve
+  steps:
+  - intent: general_selected
+  - action: utter_general_selected
+  - intent: what_munisolve
+  - action: utter_what_munisolve
+  
+- story: accessing the chat history
+  steps:
+  - intent: general_selected
+  - action: utter_general_selected
+  - intent: accessing_chat_history
+  - action: utter_accessing_chat_history
