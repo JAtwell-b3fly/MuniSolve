@@ -6,16 +6,49 @@ import {
   ImageBackground,
   Image,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator
 } from "react-native";
+import {loginAuth} from '../components/LoginAuth';
+import Toast from "react-native-toast-message";
 
-export default function Login() {
+export default function Login({navigation }) {
    const [password, setPassword] = useState('');
    const [email, setEmail] = useState('');
    const [showPassword, setShowPassword] = useState(false);
+   const [loading, setLoading] = useState(false);
    const toggleShowPassword = ({navigation}) => {
     setShowPassword(!showPassword);
   }
+
+  const handleLogin = async () => {
+
+      try {
+        setLoading(true);
+        loginAuth(email, password)
+          .then(() => {
+            navigation.navigate("Profile");
+            Toast.show({
+              type: "success",
+              position: "top",
+              text1: "LogIn Successful",
+              visibilityTime: 3000, // 3 seconds
+              autoHide: true,
+            });
+          })
+          .catch(() => {
+            Toast.show({
+              type: "error",
+              position: "top",
+              text1: "Error Logging in",
+              visibilityTime: 3000, // 3 seconds
+              autoHide: true,
+            });
+            setLoading(false);
+          });
+      } catch (error) {}
+    };
+
   return (
     <View>
       <ImageBackground
@@ -27,7 +60,11 @@ export default function Login() {
         <Text style={styles.title}>SIGN IN</Text>
         <View style={styles.inputContainer}>
             <Image source={require("../assets/3.png")} style={styles.icon} />
-            <TextInput style={styles.input} placeholder="Email" />
+            <TextInput style={styles.input} 
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
+            />
           </View>
           <View style={styles.inputContainer}>
             <Image source={require("../assets/MUNI.png")} style={styles.icon} />
@@ -37,9 +74,18 @@ export default function Login() {
             value={password}
             onChangeText={setPassword} />
           </View>
-          <TouchableOpacity  style={styles.forgot}>FORGOT PASSWORD</TouchableOpacity>
-          <TouchableOpacity  ><Text style={styles.Loginbtn}>SIGN IN</Text></TouchableOpacity> 
-          <TouchableOpacity style={styles.btn2} >SIGN UP</TouchableOpacity>                   
+          <TouchableOpacity onPress={() => navigation.navigate("Forgot")}><Text style={{textAlign: 'end', fontSize: "16px", color: "#22719E", marginRight: 30}}>FORGOT PASSWORD</Text></TouchableOpacity>
+          {loading ? (
+          <ActivityIndicator size="large" color="#0000FF" />
+        ) : (
+          <TouchableOpacity  >
+          <Text style={styles.Loginbtn} onPress={handleLogin}>SIGN IN</Text>
+          </TouchableOpacity>
+        )}
+        {/* Toast component for notifications */}
+        <Toast ref={(ref) => Toast.setRef(ref)} />
+
+          <Text style={{textAlign: 'center', fontSize: 16, color: "gray", marginTop: 5, marginLeft: 20}}>Do you have An Account? <TouchableOpacity style={styles.remember} onPress={() => navigation.navigate('Signup')}>Create</TouchableOpacity></Text>                   
       </View>
     </View>
   );
@@ -128,9 +174,13 @@ const styles = StyleSheet.create({
     fontWeight:700,
   },
   forgot:{
-    marginLeft:120,
+    
     marginTop:10,
-    fontWeight:700,
+    fontSize: 16,
     color:'#22719E',
-  }
+  },
+  remember:{
+    marginTop:5,
+    color:'#22719E',
+  },
 });

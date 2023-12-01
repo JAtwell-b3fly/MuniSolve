@@ -11,6 +11,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
+import React, { useState } from 'react';
+import AppStack from './sceensStacks/Stack'
 
 export default function App() {
   const Drawer = createDrawerNavigator();
@@ -18,7 +20,7 @@ export default function App() {
   return (
 
    
-
+  // <AppStack/>
   
     <NavigationContainer>
       <Drawer.Navigator
@@ -48,7 +50,7 @@ export default function App() {
       >
         <Drawer.Screen
           name="Home"
-          component={HomePage}
+          component={AppStack}
           options={{
             drawerIcon: ({ focused, size }) => (
               // You can use any icon library or your custom component here

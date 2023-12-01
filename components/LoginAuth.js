@@ -1,6 +1,13 @@
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut } from "firebase/auth";
-import { auth } from '../config/firebase';
-import AsyncStorage from '@react-native-async-storage/async-storage'; // Import AsyncStorage for React Native
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../config/firebase";
+import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage for React Native
 
 let currentUser = null;
 
@@ -15,56 +22,49 @@ const listenToAuthChanges = (callback) => {
   });
 };
 
-const login = async (email, password, setLoading, setError) => {
+const loginAuth = async (email, password) => {
   try {
-    setLoading(true);
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
     const user = userCredential.user;
-    console.log("User logged in:", user);
-
-    // Store user token in AsyncStorage after successful login
-    await AsyncStorage.setItem('userToken', user.getIdToken());
-    setLoading(false);
+    return user;
   } catch (error) {
     console.error("Login error:", error.code, error.message);
     setError(error.message);
-    setLoading(false);
   }
 };
 
-const signUp = async (email, password, setLoading, setError) => {
+const signUp = async (email, password) => {
   try {
-    setLoading(true);
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
     const user = userCredential.user;
-    console.log("User signed up:", user);
-
-    // Store user token in AsyncStorage after successful signup
-    await AsyncStorage.setItem('userToken', user.getIdToken());
-    setLoading(false);
+    return user;
   } catch (error) {
-    console.error("Signup error:", error.code, error.message);
-    setError(error.message);
-    setLoading(false);
+    throw error;
   }
 };
 
-const forgotPassword = async (email, setLoading, setError) => {
+const forgotPassword = async (email, ) => {
   try {
-    setLoading(true);
+    
     await sendPasswordResetEmail(auth, email);
     console.log("Password reset email sent");
-    setLoading(false);
   } catch (error) {
     console.error("Forgot password error:", error.code, error.message);
-    setError(error.message);
-    setLoading(false);
+    
   }
 };
 
 const logout = async () => {
   try {
-    await AsyncStorage.removeItem('userToken'); // Remove user token from AsyncStorage on logout
+    await AsyncStorage.removeItem("userToken"); // Remove user token from AsyncStorage on logout
     await signOut(auth);
     console.log("User logged out");
   } catch (error) {
@@ -72,4 +72,29 @@ const logout = async () => {
   }
 };
 
-export { login, signUp, forgotPassword, logout, getCurrentUser, listenToAuthChanges };
+const KeepuserLogin = async () =>{
+  const auth = getAuth();
+setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+    return signInWithEmailAndPassword(auth, email, password);
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  })
+}
+export {
+  loginAuth,
+  signUp,
+  forgotPassword,
+  logout,
+  getCurrentUser,
+  listenToAuthChanges,
+  KeepuserLogin
+};
