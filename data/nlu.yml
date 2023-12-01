@@ -1,0 +1,171 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good night
+    - bye
+    - goodbye
+    - good bye
+    - bye bye
+
+- intent: thank
+  examples: |
+    - thanks
+    - thank you very much
+    - thank you so much
+    - thank you
+    - much appreciated
+    - I appreciated it
+    - many thanks
+
+- intent: nlu_fallback
+
+- intent: no_response_to_helped_not_satisfied
+  examples: |
+    - no I was not helped
+    - no i was not helped
+    - I was not helped
+    - you are have not helped me
+    - you are not helping
+    
+- intent: no_response_to_helped_fine
+  examples: |
+    - no i am fine
+    - no I am fine
+    
+- intent: rating_number
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    
+- intent: yes_response_1
+  examples: |
+    - yes I was
+    - definitely
+    - yes i was
+    
+- intent: yes_response_2
+  examples: |
+    - yes i do
+    - yes please
+    - yes there is
+    - yes I do
+    
+- intent: electricity_selected
+  examples: |
+    - Electricity Questions
+    - Electricity
+    - electricity
+    - electricity questions
+    
+- intent: general_selected
+  examples: |
+    - General Questions
+    - General
+    - general questions
+    - general
+    
+- intent: blocked_meter-box
+  examples: |
+    - Blocked Meter-box
+    - Blocked Meterbox
+    - blocked meter-box
+    - blocked meterbox
+    
+- intent: avoid_blocked_meterbox
+  examples: |
+    - How do I avoid my meter-box from being blocked
+    - How do I avoid my meterbox from being blocked
+    - how do I avoid my meter-box from being blocked
+    - how do I avoid my meterbox from being blocked
+    
+- intent: unpaid_electricity_selected
+  examples: |
+    - Unpaid Electricity
+    - unpaid electricity
+    
+- intent: what_happens_dont_pay
+  examples: |
+    - What happens if I don't keep up with my payments
+    - What happens if I dont keep up with my payments
+    - what happens if I don't keep up with my payments
+    - what happens if I dont keep up with my payments
+    
+- intent: how_pay_electricity
+  examples: |
+    - How do I pay my electricity
+    - how do I pay my electricity
+    - How do I pay my electricity fees
+    - how do I pay my electricity fees
+    
+- intent: meterbox_blocked
+  examples: |
+    - My Meter-box is blocked
+    - my Meter-box is blocked
+    - My meterbox is blocked
+    - my meterboc is blocked
+    
+- intent: unblock_meter-box
+  examples: |
+    - How do I unblock my meter-box
+    - How do I unblock my meterbox
+    - how do I unblock my meter-box
+    - how do I unblock my meterbox
+    
+- intent: loadshedding_schedule
+  examples: |
+    - Loadshedding Schedule
+    - loadshedding schedule
+    - loadshedding
+    - schedule
+    
+- intent: update_profile_info
+  examples: |
+    - Update Profile Information
+    - Update profile information
+    - profile information
+    - Profile Information
+    - Profile information
+    - update profile information
+    
+- intent: what_munisolve
+  examples: |
+    - What is MuniSolve
+    - What is munisolve
+    - What is Munisolve
+    - what is munisolve
+    - Are you a bot
+    - Are you a robot
+    - are you a bot
+    - are you a robot
+    - Are you a human
+    - are you a human
+    - Are you human
+    - are you human
+    
+- intent: accessing_chat_history
+  examples: |
+    - Accessing Chat History
+    - Accessing chat history
+    - accessing chat history
+    - Accessing Chat history
+    - Chat History
+    - chat history
+    - Chat history

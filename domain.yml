@@ -1,0 +1,96 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - thank
+  - no_response_to_helped_not_satisfied
+  - no_response_to_helped_fine
+  - rating_number
+  - yes_response_1
+  - yes_response_2
+  - nlu_fallback
+  - electricity_selected
+  - blocked_meter-box
+  - avoid_blocked_meterbox
+  - unpaid_electricity_selected
+  - what_happens_dont_pay
+  - how_pay_electricity
+  - meterbox_blocked
+  - unblock_meter-box
+  - loadshedding_schedule
+  - update_profile_info
+  - what_munisolve
+  - accessing_chat_history
+  - general_selected
+
+responses:
+  utter_greet:
+    - text: "Hey! How can I assist you today?\n1. Electricity Questions\n2. General Questions"
+  
+  utter_thank:
+    - text: "You are welcome. Were you helped?\n1. yes I was/defintely\n2. I was not helped/no I was not helped"
+    
+  utter_no_response_to_helped:
+    - text: "I apologise for not being able to assist. Please contact us for further assistance.\n Kindly rate how helpful this session was:\n1\n2\n3\n4\n5"
+    
+  utter_no_response_assistance:
+    - text: "I understand. Until next time. Bye"
+    
+  utter_yes_response_assistance:
+    - text: "I am glad I could assist you.\nKindly rate how helpful this session was:\n1\n2\n3\n4\n5"
+    
+  utter_rating_number:
+    - text: "Thank you for your feedback.\nDo you need assistance with anything else.\n1. yes I do/yes there is\n2. no I am fine"
+    
+  utter_yes_response:
+    - text: "How can I assist you further? \n1. Electricity Questions\n2. General Questions"
+    
+  utter_default_response:
+    - text: "I do not completely understand what you are asking or requesting. Here are some options I could assist with:\n1. Electricity Questions\n2. General Questions"
+  
+  utter_goodbye:
+    - text: "Bye. Were you helped?\n1. yes I was/defintely\n2. I was not helped/no I was not helped"
+    
+  utter_electricity_selected:
+    - text: "You chose Electricity.\nWhat do you want to know more about?\n1. Blocked Meter-box\n2. Unpaid Electricity\n3. Loadshedding Schedule"
+    
+  utter_blocked_meter-box:
+    - text: "You chose Blocked Meter-box.\nWhat do you want to know more about?\n1. My meter-box is blocked\n2. How do I unblock my meter-box\n3. How do I avoid my meter-box from being blocked"
+    
+  utter_avoid_blocked_meterbox:
+    - text: "To avoid your meter-box from being blocked, consider the following:\n1. Pay your fees on time\n2. Monitor your electricity usage\n3. Ensure proper maintenance of your meter-box\n4. Contact us for assistance"
+    
+  utter_unpaid_electricity_selected: 
+    - text: "You chose Unpaid Electricity.\nWhat do you want to know more?\n1. What happens if I don't keep up with my payments\n2. How do I pay my electricity fees"
+    
+  utter_what_happens_dont_pay:
+    - text: "What happens if I don't keep up with my payments:\n1. Your meter-box will be blocked\n2. You will not be able to buy or use electricity in your home\n3. You will have to pay off a percentage of the outstanding amount to unblock it\n4. Contact us for assistance"
+    
+  utter_how_pay_electricity:
+    - text: "How do I pay my electricity:\n1. You have to visit you local municipality to arrange to settle outstanding payments\n2. Contact us for assistance"
+    
+  utter_meterbox_blocked:
+    - text: "Visit your nearest local government municipal office to settle the outstanding fees"
+    
+  utter_unblock_meter-box:
+    - text: "How do I unblock my meter-box:\n1. Visit your nearest municipality to settle the arrangement\n2. Pay your outstanding electricity fees at the municipality\n3. Contact us for further assistance"
+    
+  utter_loadshedding_schedule:
+    - text: "You chose Loadshedding Schedule:\n1. To see loadshedding schedules, use this link: https://loadshedding.eskom.co.za/\n2. Keep in mind that I cannot provide the exact schedules and stages for a location through the chat"
+    
+  utter_update_profile_info:
+    - text: "You chose Update Profile Information.\n1. Navigate to the Profile Icon\n2. Right click on it\n3. Select the edit icon to update your information\n4. Select the save button to save your changes"
+    
+  utter_what_munisolve:
+    - text: "What is MuniSolve:\n1. I am a chat-bot created to assist in provide information on your local government\n2. I was created using Rasa NLU\n3. I strictly assist in providing information pertaining to your local government only\n4. I am not human\n5. I am not a robot\n6. I am not Artificial Intelligence, but I am created using Machine Learning models"
+    
+  utter_accessing_chat_history:
+    - text: "Accessing Chat History:\n1. Navigate to the Profile Icon\n2. Right click on the Profile Icon\n3. Navigate to the Chat History Button\n4. Right click on the Chat History Button"
+    
+  utter_general_selected:
+    - text: "You chose General Questions.\nWhat do you want to know more about?\n1. Update Profile Information\n2. What is MuniSolve\n3. Accessing Chat History"
+    
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
