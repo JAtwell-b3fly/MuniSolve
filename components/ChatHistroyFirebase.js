@@ -6,7 +6,7 @@ const currentDate = new Date();
 const formattedDate = currentDate.toLocaleDateString();
 
 
-  const addDocument = async () => {
+  const addHistory = async () => {
     try {
       const authUser = getAuth().currentUser;
       if (authUser) {
@@ -88,4 +88,4 @@ const formattedDate = currentDate.toLocaleDateString();
   
 
 
-export {addDocument, addProfile, updateProfile, deleteHistory}
+export {addHistory, addProfile, updateProfile, deleteHistory}

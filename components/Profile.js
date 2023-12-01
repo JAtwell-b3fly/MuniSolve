@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   return (
     <View style={{ backgroundColor: "#F5F2F2", flex: 1 }}>
       <View style={styles.top}>
@@ -18,22 +18,24 @@ const Profile = () => {
       <View>
         <Text style={styles.general}>GENERAL</Text>
       </View>
-      <View style={styles.infoContainer}>
-        <View style={styles.smallcontainer}>
-          <Image
-            source={require("../assets/Rectangle 98.png")}
-            style={styles.icons}
-          />
-          <View>
-            <Text style={styles.subheading}>Profile Setting</Text>
-            <Text style={styles.infotext}>Update and modify your profile</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
+        <View style={styles.infoContainer}>
+          <View style={styles.smallcontainer}>
+            <Image
+              source={require("../assets/Rectangle 98.png")}
+              style={styles.icons}
+            />
+            <View>
+              <Text style={styles.subheading}>Profile Setting</Text>
+              <Text style={styles.infotext}>Update and modify your profile</Text>
+            </View>
+            <Image
+               source={require("../assets/Rectangle 92.png")}
+               style={styles.icon}
+               />
           </View>
-          <Image
-             source={require("../assets/Rectangle 92.png")}
-             style={styles.icon}
-             />
         </View>
-      </View>
+      </TouchableOpacity>
 
       <View style={styles.infoContainer}>
         <View style={styles.smallcontainer}>
