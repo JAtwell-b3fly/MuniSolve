@@ -4,6 +4,10 @@ import HomePage from "./components/HomePage";
 import Screen from "./components/screens/Screen";
 import ChatHistoryPage from "./components/ChatHistoryPage";
 import ProfilePage from "./components/ProfilePage";
+import Chathistory from './components/Chathistory';
+
+import Edit from './components/Edit';
+import Profile from './components/Profile';
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -55,39 +59,39 @@ export default function App() {
           }}
         />
         
-        <Drawer.Screen 
-        name="Chat History" 
-        component={ChatHistoryPage}
-        options={{
-          drawerIcon: ({ focused, size}) => (
-            <FontAwesome name="history" size={24} color="gray" />
-          ),
-        }} />
-        <Drawer.Screen 
-        name="My Profile" 
-        component={ProfilePage} 
-        options={{
-          drawerIcon: ({ focused, size}) => (
-            <FontAwesome name="user-circle-o" size={24} color="gray" />
-          ),
-        }}
-        />
+// //         <Drawer.Screen 
+//         name="Chat History" 
+//         component={ChatHistoryPage}
+//         options={{
+//           drawerIcon: ({ focused, size}) => (
+//             <FontAwesome name="history" size={24} color="gray" />
+//           ),
+//         }} />
+//         <Drawer.Screen 
+//         name="My Profile" 
+//         component={ProfilePage} 
+//         options={{
+//           drawerIcon: ({ focused, size}) => (
+//             <FontAwesome name="user-circle-o" size={24} color="gray" />
+//           ),
+//         }}
+//         />
 
-<Drawer.Screen name="Signout" component={props => (
-          <TouchableOpacity style={styles.signOutButton}>
-            <Text>Sign Out</Text>
-          </TouchableOpacity>
-        )}
-        options={{
-          drawerIcon: ({ focused, size}) => (
-            <MaterialIcons name="logout" size={24} color="gray" />
-          ),
-        }}
-        />
+// <Drawer.Screen name="Signout" component={props => (
+//           <TouchableOpacity style={styles.signOutButton}>
+//             <Text>Sign Out</Text>
+//           </TouchableOpacity>
+//         )}
+//         options={{
+//           drawerIcon: ({ focused, size}) => (
+//             <MaterialIcons name="logout" size={24} color="gray" />
+//           ),
+//         }}
+//         />
         
-      </Drawer.Navigator>
+//       </Drawer.Navigator>
       
-    </NavigationContainer>
+//     </NavigationContainer>
 
   );
 }
@@ -105,9 +109,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    // height:5,
-    // width:50,
-    // backgroundColor:'blue',
-    // borderRadius:15,
+   
   }
 });
