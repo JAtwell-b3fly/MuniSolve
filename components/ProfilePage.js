@@ -8,7 +8,7 @@ function ProfilePage({ ...props }) {
       {/* Profile Section */}
       <View style={styles.profileContainer}>
         {/* <Text style={styles.profileText}>User Profile</Text> */}
-        <Image style={styles.ProfileImage} source={require("../assets/close-up-portrait-attractive-man-with-afro-hairstyle-stubble-wears-orange-anorak_273609-8595.jpg")} />
+        <Image style={styles.ProfileImage} source={require("../assets/close-up.jpg")} />
          <Text style={styles.profileText}>Kabelo </Text>
          <Text style={styles.profileEmail}>kabelo@gmail.com</Text>
          
