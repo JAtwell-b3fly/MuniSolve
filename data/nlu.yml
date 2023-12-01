@@ -34,25 +34,18 @@ nlu:
 
 - intent: nlu_fallback
 
-- intent: no_response_to_helped_1
+- intent: no_response_to_helped_not_satisfied
   examples: |
-    - no
     - no I was not helped
     - no i was not helped
     - I was not helped
-    - no!
     - you are have not helped me
     - you are not helping
     
-- intent: no_response_to_helped_2
+- intent: no_response_to_helped_fine
   examples: |
-    - no
-    - no I was not helped
-    - no i was not helped
-    - I was not helped
-    - no!
-    - you are have not helped me
-    - you are not helping
+    - no i am fine
+    - no I am fine
     
 - intent: rating_number
   examples: |
@@ -65,7 +58,6 @@ nlu:
 - intent: yes_response_1
   examples: |
     - yes I was
-    - yes
     - definitely
     - yes i was
     
@@ -74,7 +66,6 @@ nlu:
     - yes i do
     - yes please
     - yes there is
-    - yes
     - yes I do
     
 - intent: electricity_selected

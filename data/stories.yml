@@ -2,37 +2,67 @@ version: "3.1"
 
 stories:
   
-- story: Say goodbye anytime the user says goodbye
+- story: Say goodbye anytime the user says goodbye no assistance no further help
   steps:
   - intent: goodbye
   - action: utter_goodbye
-  - intent: no_response_to_helped
+  - intent: no_response_to_helped_not_satisfied
   - action: utter_no_response_to_helped
-  - intent: yes_response
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: no_response_to_helped_fine
+  - action: utter_no_response_assistance
+  
+- story: Say goodbye anytime the user says goodbye no assistance yes further help
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: no_response_to_helped_not_satisfied
+  - action: utter_no_response_to_helped
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: yes_response_2
+  - action: utter_yes_response
+  
+- story: Say goodbye anytime the user says goodbye yes assistance no further help
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: yes_response_1
   - action: utter_yes_response_assistance
   - intent: rating_number
   - action: utter_rating_number
-  - intent: no_response_to_helped
+  - intent: no_response_to_helped_fine
   - action: utter_no_response_assistance
-  - intent: yes_response
+  
+- story: Say goodbye anytime the user says goodbye yes assistance yes further help
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: yes_response_1
+  - action: utter_yes_response_assistance
+  - intent: rating_number
+  - action: utter_rating_number
+  - intent: yes_response_2
   - action: utter_yes_response
+  
 
 - story: express thanks no assistance no further help
   steps: 
   - intent: thank
   - action: utter_thank
-  - intent: no_response_to_helped_1
+  - intent: no_response_to_helped_not_satisfied
   - action: utter_no_response_to_helped
   - intent: rating_number
   - action: utter_rating_number
-  - intent: no_response_to_helped_2
+  - intent: no_response_to_helped_fine
   - action: utter_no_response_assistance
   
 - story: express thanks no assistance yes further help
   steps: 
   - intent: thank
   - action: utter_thank
-  - intent: no_response_to_helped_1
+  - intent: no_response_to_helped_not_satisfied
   - action: utter_no_response_to_helped
   - intent: rating_number
   - action: utter_rating_number
@@ -47,7 +77,7 @@ stories:
   - action: utter_yes_response_assistance
   - intent: rating_number
   - action: utter_rating_number
-  - intent: no_response_to_helped_2
+  - intent: no_response_to_helped_fine
   - action: utter_no_response_assistance
   
 - story: express thanks yes assistance yes further help

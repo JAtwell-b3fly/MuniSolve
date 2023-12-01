@@ -4,8 +4,8 @@ intents:
   - greet
   - goodbye
   - thank
-  - no_response_to_helped_1
-  - no_response_to_helped_2
+  - no_response_to_helped_not_satisfied
+  - no_response_to_helped_fine
   - rating_number
   - yes_response_1
   - yes_response_2
@@ -29,19 +29,19 @@ responses:
     - text: "Hey! How can I assist you today?\n1. Electricity Questions\n2. General Questions"
   
   utter_thank:
-    - text: "You are welcome. Were you helped?"
+    - text: "You are welcome. Were you helped?\n1. yes I was/defintely\n2. I was not helped/no I was not helped"
     
   utter_no_response_to_helped:
     - text: "I apologise for not being able to assist. Please contact us for further assistance.\n Kindly rate how helpful this session was:\n1\n2\n3\n4\n5"
     
   utter_no_response_assistance:
-    - text: "I understand. Until next time. Bye."
+    - text: "I understand. Until next time. Bye"
     
   utter_yes_response_assistance:
     - text: "I am glad I could assist you.\nKindly rate how helpful this session was:\n1\n2\n3\n4\n5"
     
   utter_rating_number:
-    - text: "Thank you for your feedback.\nDo you need assistance with anything else."
+    - text: "Thank you for your feedback.\nDo you need assistance with anything else.\n1. yes I do/yes there is\n2. no I am fine"
     
   utter_yes_response:
     - text: "How can I assist you further? \n1. Electricity Questions\n2. General Questions"
@@ -50,7 +50,7 @@ responses:
     - text: "I do not completely understand what you are asking or requesting. Here are some options I could assist with:\n1. Electricity Questions\n2. General Questions"
   
   utter_goodbye:
-    - text: "Bye. Were you helped?"
+    - text: "Bye. Were you helped?\n1. yes I was/defintely\n2. I was not helped/no I was not helped"
     
   utter_electricity_selected:
     - text: "You chose Electricity.\nWhat do you want to know more about?\n1. Blocked Meter-box\n2. Unpaid Electricity\n3. Loadshedding Schedule"
