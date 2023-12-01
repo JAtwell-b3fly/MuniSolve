@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -17,11 +17,42 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false)
+  const [errors, setErrors] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
   const toggleShowPassword = ({ navigation }) => {
     setShowPassword(!showPassword);
   };
 
+  useEffect(() => {
+    // Trigger form validation when email or password changes
+    validateForm();
+  }, [email, password]);
+
+  const validateForm = () => {
+    let errors = {};
+
+    // Validate email field
+    if (!email) {
+      errors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = "Email is invalid.";
+    }
+
+    // Validate password field
+    if (!password) {
+      errors.password = "Password is required.";
+    } else if (password.length < 6) {
+      errors.password = "Password must be at least 6 characters.";
+    }
+
+    setErrors(errors);
+    setIsFormValid(Object.keys(errors).length === 0);
+  };
+
   const handleForgot = () => {
+    validateForm(); // Trigger validation before attempting to sign in
+
+    if (isFormValid) {
     try {
       setLoading(true);
       forgotPassword(email)
@@ -46,6 +77,7 @@ export default function Login({ navigation }) {
           setLoading(false);
         });
     } catch (error) {}
+  }
   };
   return (
     <View>
@@ -69,6 +101,7 @@ export default function Login({ navigation }) {
             onChangeText={setEmail}
           />
         </View>
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
         <Text style={{ textAlign: "center", fontSize: 16, color: "gray" }}>
           You remember your{" "}
           <TouchableOpacity

@@ -11,11 +11,43 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AppStack from './sceensStacks/Stack'
+// import { onAuthStateChanged } from "firebase/auth";
+// import { auth } from "./config/firebase";
+export default function App({navigation}) {
 
-export default function App() {
+  const [authenticated, setAuthenticated] = useState(false);
   const Drawer = createDrawerNavigator();
+
+
+
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
+  //     console.log(user);
+  //     if (user) {
+  //       console.log("User is logged in");
+  //       setAuthenticated(true);
+  //     } else {
+  //       console.log("User is not logged in");
+  //       setAuthenticated(false);
+  //     }
+  //   });
+
+  //   // Clean up the subscription when the component unmounts
+  //   return () => unsubscribe();
+  // }, []);
+
+  
+
+  // useEffect(()=>{
+  //   if(authenticated){
+  //     navigation.navigate('Profile')
+
+  //   }else {
+  //     navigation.navigate('Login')
+  //   }
+  // }, [authenticated, navigation])
 
   return (
 

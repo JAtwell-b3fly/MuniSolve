@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -17,10 +17,54 @@ const Signup = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [number, setNumber] = useState("");
+  const [name, setName] = useState("");
+
   const toggleShowPassword = ({ navigation }) => {
     setShowPassword(!showPassword);
   };
-  const handleSignup = async () => {
+
+  useEffect(() => {
+    // Trigger form validation when email or password changes
+    validateForm();
+  }, [email, password]);
+
+  const validateForm = () => {
+    let errors = {};
+
+    // Validate email field
+    if (!email) {
+      errors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = "Email is invalid.";
+    }
+
+    if (!name) {
+      errors.name = "Username is required.";
+    } else if (!/^[a-zA-Z0-9_-]{3,16}$/.test(name)) {
+      errors.name = "Username is invalid. It should contain only letters, numbers, hyphens, or underscores and be between 3 to 16 characters long.";
+    }
+    // Validate password field
+    if (!password) {
+      errors.password = "Password is required.";
+    } else if (password.length < 6) {
+      errors.password = "Password must be at least 6 characters.";
+    }
+    if (!number) {
+      errors.number = "Phone Number is required.";
+    } else if (number.length < 10) {
+      errors.number = "Phone Number must be at least 10 characters.";
+    }    
+
+    setErrors(errors);
+    setIsFormValid(Object.keys(errors).length === 0);
+  };
+
+  const handleSignup = async (user) => {
+    setUserId(user);
+    if (isFormValid) {
     try {
       setLoading(true);
       signUp(email, password)
@@ -45,6 +89,7 @@ const Signup = ({ navigation }) => {
           setLoading(false);
         });
     } catch (error) {}
+  }
   };
   return (
     <View>
@@ -57,8 +102,13 @@ const Signup = ({ navigation }) => {
         <Text style={styles.title}>SIGN IN</Text>
         <View style={styles.inputContainer}>
           <Image source={require("../assets/user.png")} style={styles.icon} />
-          <TextInput style={styles.input} placeholder="Username" />
+          <TextInput style={styles.input} 
+          placeholder="Username" 
+          value={name}
+          onChangeText={setName}
+          />
         </View>
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.name}</Text>
         <View style={styles.inputContainer}>
           <Image source={require("../assets/3.png")} style={styles.icon} />
           <TextInput
@@ -68,10 +118,16 @@ const Signup = ({ navigation }) => {
             onChangeText={setEmail}
           />
         </View>
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
         <View style={styles.inputContainer}>
           <Image source={require("../assets/2.png")} style={styles.icon} />
-          <TextInput style={styles.input} placeholder="Mobile Number" />
+          <TextInput style={styles.input} 
+          placeholder="Mobile Number" 
+          value={number}
+          onChangeText={setNumber}
+          />
         </View>
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.number}</Text>
         <View style={styles.inputContainer}>
           <Image source={require("../assets/MUNI.png")} style={styles.icon} />
           <TextInput
@@ -80,8 +136,9 @@ const Signup = ({ navigation }) => {
             value={password}
             onChangeText={setPassword}
           />
+          
         </View>
-
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>
         {loading ? (
           <ActivityIndicator size="large" color="#0000FF" />
         ) : (
