@@ -1,10 +1,10 @@
 import { View, Text,StyleSheet,Image,TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const BoardingPageThree = () => {
+const BoardingPageThree = ({navigation}) => {
     return (
         <View style={styles.MainContainer}>
-          <TouchableOpacity  style={styles.SkipButton}>SKIP</TouchableOpacity>
+          <TouchableOpacity  style={styles.SkipButton} onPress={() => navigation.navigate("Login")}>SKIP</TouchableOpacity>
           <Image style={styles.BoardingImageOne} source={require("../assets/artificial.jpg")} />
           <Text style={styles.Subtitle}>FAQ Database:</Text>
           <Text style={styles.Paragraph}>Munibot is equipped with an extensive database of frequently
@@ -17,7 +17,7 @@ const BoardingPageThree = () => {
                     <View style={{width:30,height:10,backgroundColor:"#9ACAE5",marginLeft:5,borderRadius:10}}></View>
                     <View style={{width:30,height:10,backgroundColor:"#22719E",marginLeft:5,borderRadius:10}}></View>
                 </View>
-               <TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                 <Image style={styles.NextPageArrow} source={require("../assets/icons8-arrow-50.png")} />
                </TouchableOpacity>
              
@@ -29,8 +29,7 @@ const BoardingPageThree = () => {
     const styles = StyleSheet.create({
          
         MainContainer: {
-            height:600,
-            width:300,
+
             flex: 1,
             backgroundColor: '#fff',
             alignItems: 'center',

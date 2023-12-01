@@ -3,6 +3,10 @@ import { GiftedChat, Bubble, InputToolbar } from 'react-native-gifted-chat';
 import {addHistory} from './ChatHistroyFirebase'
 const Chat = () => {
   const [messages, setMessages] = useState([]);
+
+  useEffect(() =>{
+     addHistory();
+  }, [])
   
   useEffect(() => {
     addHistory()

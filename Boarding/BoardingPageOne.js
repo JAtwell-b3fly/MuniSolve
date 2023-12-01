@@ -1,10 +1,10 @@
 import { View, Text,StyleSheet,Image,TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const BoardingPageOne = () => {
+const BoardingPageOne = ({navigation}) => {
   return (
     <View style={styles.MainContainer}>
-      <TouchableOpacity  style={styles.SkipButton}>SKIP</TouchableOpacity>
+      <TouchableOpacity  style={styles.SkipButton} onPress={() => navigation.navigate("Login")}>SKIP</TouchableOpacity>
       <Image style={styles.BoardingImageOne} source={require("../assets/chatbot-artificial.jpg")} />
       <Text style={styles.Subtitle}>Description:</Text>
       <Text style={styles.Paragraph}>Munibot is an intelligent and user-friendly chatbot
@@ -19,7 +19,7 @@ const BoardingPageOne = () => {
                 <View style={{width:30,height:10,backgroundColor:"#9ACAE5",marginLeft:5,borderRadius:10}}></View>
             </View>
            
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("Board2")}>
                 <Image style={styles.NextPageArrow} source={require("../assets/icons8-arrow-50.png")} />
                </TouchableOpacity>
          </View>
@@ -30,8 +30,7 @@ const BoardingPageOne = () => {
 const styles = StyleSheet.create({
      
     MainContainer: {
-        height:600,
-        width:300,
+        
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
