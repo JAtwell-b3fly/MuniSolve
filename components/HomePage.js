@@ -5,19 +5,9 @@ import axios from 'axios';
 const Chat = () => {
   const [messages, setMessages] = useState([]);
 
-<<<<<<< HEAD
-  useEffect(() =>{
-     addHistory();
-  }, [])
-  
-  useEffect(() => {
-    addHistory()
-  }, [])
-=======
   function generateRandomNumber() {
     return Math.floor(Math.random() * 1000) + 1;
   }
->>>>>>> b866fcc86169b0335d581a21dbf8f35f319fc6b8
 
   useEffect(() => {
     // Set initial messages
