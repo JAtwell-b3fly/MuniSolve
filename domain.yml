@@ -26,70 +26,70 @@ intents:
 
 responses:
   utter_greet:
-    - text: "Hey! How can I assist you today?\n1. Electricity Questions\n2. General Questions"
+    - text: "Hey! How can I assist you today?\n- **Electricity Questions**\n- **General Questions**"
   
   utter_thank:
-    - text: "You are welcome. Were you helped?\n1. yes I was/defintely\n2. I was not helped/no I was not helped"
+    - text: "You are welcome. Were you helped?\n- **yes I was/defintely**\n- **I was not helped/no I was not helped**"
     
   utter_no_response_to_helped:
-    - text: "I apologise for not being able to assist. Please contact us for further assistance.\n Kindly rate how helpful this session was:\n1\n2\n3\n4\n5"
+    - text: "I apologise for not being able to assist. Please contact us for further assistance.\n Kindly rate how helpful this session was:\n- **1**\n- **2**\n- **3**\n- **4**\n- **5**"
     
   utter_no_response_assistance:
     - text: "I understand. Until next time. Bye"
     
   utter_yes_response_assistance:
-    - text: "I am glad I could assist you.\nKindly rate how helpful this session was:\n1\n2\n3\n4\n5"
+    - text: "I am glad I could assist you.\nKindly rate how helpful this session was:\n- **1**\n- **2**\n- **3**\n- **4**\n- **5**"
     
   utter_rating_number:
-    - text: "Thank you for your feedback.\nDo you need assistance with anything else.\n1. yes I do/yes there is\n2. no I am fine"
+    - text: "Thank you for your feedback.\nDo you need assistance with anything else.\n- **yes I do/yes there is**\n- **no I am fine**"
     
   utter_yes_response:
-    - text: "How can I assist you further? \n1. Electricity Questions\n2. General Questions"
+    - text: "How can I assist you further? \n- **Electricity Questions**\n- **General Questions**"
     
   utter_default_response:
-    - text: "I do not completely understand what you are asking or requesting. Here are some options I could assist with:\n1. Electricity Questions\n2. General Questions"
+    - text: "I do not completely understand what you are asking or requesting. Here are some options I could assist with:\n- **Electricity Questions**\n- **General Questions**"
   
   utter_goodbye:
-    - text: "Bye. Were you helped?\n1. yes I was/defintely\n2. I was not helped/no I was not helped"
+    - text: "Bye. Were you helped?\n- **yes I was/defintely**\n- **I was not helped/no I was not helped**"
     
   utter_electricity_selected:
-    - text: "You chose Electricity.\nWhat do you want to know more about?\n1. Blocked Meter-box\n2. Unpaid Electricity\n3. Loadshedding Schedule"
+    - text: "You chose Electricity.\nWhat do you want to know more about?\n- **Blocked Meter-box**\n- **Unpaid Electricity**\n- **Loadshedding Schedule**"
     
   utter_blocked_meter-box:
-    - text: "You chose Blocked Meter-box.\nWhat do you want to know more about?\n1. My meter-box is blocked\n2. How do I unblock my meter-box\n3. How do I avoid my meter-box from being blocked"
+    - text: "You chose Blocked Meter-box.\nWhat do you want to know more about?\n- **My meter-box is blocked**\n- **How do I unblock my meter-box**\n- **How do I avoid my meter-box from being blocked**"
     
   utter_avoid_blocked_meterbox:
-    - text: "To avoid your meter-box from being blocked, consider the following:\n1. Pay your fees on time\n2. Monitor your electricity usage\n3. Ensure proper maintenance of your meter-box\n4. Contact us for assistance"
+    - text: "To avoid your meter-box from being blocked, consider the following:\n- **Pay your fees on time**\n- **Monitor your electricity usage**\n- **Ensure proper maintenance of your meter-box**\n- **Contact us for assistance**"
     
   utter_unpaid_electricity_selected: 
-    - text: "You chose Unpaid Electricity.\nWhat do you want to know more?\n1. What happens if I don't keep up with my payments\n2. How do I pay my electricity fees"
+    - text: "You chose Unpaid Electricity.\nWhat do you want to know more?\n- **What happens if I don't keep up with my payments**\n- **How do I pay my electricity fees**"
     
   utter_what_happens_dont_pay:
-    - text: "What happens if I don't keep up with my payments:\n1. Your meter-box will be blocked\n2. You will not be able to buy or use electricity in your home\n3. You will have to pay off a percentage of the outstanding amount to unblock it\n4. Contact us for assistance"
+    - text: "What happens if I don't keep up with my payments:\n- **Your meter-box will be blocked**\n- **You will not be able to buy or use electricity in your home**\n- **You will have to pay off a percentage of the outstanding amount to unblock it**\n- **Contact us for assistance**"
     
   utter_how_pay_electricity:
-    - text: "How do I pay my electricity:\n1. You have to visit you local municipality to arrange to settle outstanding payments\n2. Contact us for assistance"
+    - text: "How do I pay my electricity:\n- **You have to visit you local municipality to arrange to settle outstanding payments**\n- **Contact us for assistance**"
     
   utter_meterbox_blocked:
     - text: "Visit your nearest local government municipal office to settle the outstanding fees"
     
   utter_unblock_meter-box:
-    - text: "How do I unblock my meter-box:\n1. Visit your nearest municipality to settle the arrangement\n2. Pay your outstanding electricity fees at the municipality\n3. Contact us for further assistance"
+    - text: "How do I unblock my meter-box:\n- **Visit your nearest municipality to settle the arrangement**\n- **Pay your outstanding electricity fees at the municipality**\n- **Contact us for further assistance**"
     
   utter_loadshedding_schedule:
-    - text: "You chose Loadshedding Schedule:\n1. To see loadshedding schedules, use this link: https://loadshedding.eskom.co.za/\n2. Keep in mind that I cannot provide the exact schedules and stages for a location through the chat"
+    - text: "You chose Loadshedding Schedule:\n- **To see loadshedding schedules, use this link: https://loadshedding.eskom.co.za/**\n- **Keep in mind that I cannot provide the exact schedules and stages for a location through the chat**"
     
   utter_update_profile_info:
-    - text: "You chose Update Profile Information.\n1. Navigate to the Profile Icon\n2. Right click on it\n3. Select the edit icon to update your information\n4. Select the save button to save your changes"
+    - text: "You chose Update Profile Information.\n- **Navigate to the Profile Icon**\n- **Right click on it**\n- **Select the edit icon to update your information**\n- **Select the save button to save your changes**"
     
   utter_what_munisolve:
-    - text: "What is MuniSolve:\n1. I am a chat-bot created to assist in provide information on your local government\n2. I was created using Rasa NLU\n3. I strictly assist in providing information pertaining to your local government only\n4. I am not human\n5. I am not a robot\n6. I am not Artificial Intelligence, but I am created using Machine Learning models"
+    - text: "What is MuniSolve:\n- **I am a chat-bot created to assist in provide information on your local government**\n- **I was created using Rasa NLU**\n- **I strictly assist in providing information pertaining to your local government only**\n- **I am not human**\n- **I am not a robot**\n- **I am not Artificial Intelligence, but I am created using Machine Learning models**"
     
   utter_accessing_chat_history:
-    - text: "Accessing Chat History:\n1. Navigate to the Profile Icon\n2. Right click on the Profile Icon\n3. Navigate to the Chat History Button\n4. Right click on the Chat History Button"
+    - text: "Accessing Chat History:\n- **Navigate to the Profile Icon**\n- **Right click on the Profile Icon**\n- **Navigate to the Chat History Button**\n- **Right click on the Chat History Button**"
     
   utter_general_selected:
-    - text: "You chose General Questions.\nWhat do you want to know more about?\n1. Update Profile Information\n2. What is MuniSolve\n3. Accessing Chat History"
+    - text: "You chose General Questions.\nWhat do you want to know more about?\n- **Update Profile Information**\n- **What is MuniSolve**\n- **Accessing Chat History**"
     
 session_config:
   session_expiration_time: 60
