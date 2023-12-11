@@ -1,4 +1,4 @@
-import { collection, addDoc, updateDoc, doc, deleteDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc, deleteDoc, serverTimestamp, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { getAuth } from "firebase/auth";
 
@@ -6,7 +6,7 @@ const currentDate = new Date();
 const formattedDate = currentDate.toLocaleDateString();
 
 
-  const addHistory = async () => {
+  const addHistory = async ( chat) => {
     try {
       const authUser = getAuth().currentUser;
       if (authUser) {
@@ -27,7 +27,7 @@ const formattedDate = currentDate.toLocaleDateString();
     
   };
 
-  const addProfile = async () => {
+  const addProfile = async (email, address, name, number) => {
     try {
       const docRef = await addDoc(collection(db, "User"+ email), {
         Email: email,
@@ -42,33 +42,49 @@ const formattedDate = currentDate.toLocaleDateString();
     }
   }
 
-  const updateProfile = async () => {
+  const updateProfile = async (user, imageUri, profileInfo) => {
     try {
-       const authUser = getAuth().currentUser;
+      const authUser = getAuth().currentUser;
+  
+      // If an image is provided, upload it to your storage and get the download URL
+      let imageUrl = null;
+      if (imageUri) {
        
-       await updateDoc(doc(db, "User"+ authUser.email, profileInfo[0].id), {
+        const storageRef = ref(storage, `profileImages/${authUser.uid}`);
+        const imageRef = child(storageRef, 'profileImage');
+        const snapshot = await uploadString(imageRef, imageUri, 'data_url');
+        imageUrl = await getDownloadURL(snapshot.ref);
+      }
+  
+      
+      await updateDoc(doc(db, "User" + authUser.email, profileInfo[0].id), {
         Name: user.name,
         Email: user.email,
-        Number: user.phone,
+        Number: user.number,
         Address: user.address,
-       });
-
-       setProfileInfo([
+        ImageUrl: imageUrl, 
+      });
+  
+      setProfileInfo([
         {
           ...profileInfo[0],
           Name: user.name,
           Email: user.email,
-          Number: user.phone,
+          Number: user.number,
           Address: user.address,
-        
-        }
-       ])
-       setIsEditing(false);
+          ImageUrl: imageUrl,
+        },
+      ]);
+  
     } catch (error) {
-      console.log('Error updating profile' +error.messages);
-      alert("Error updating")
+      console.error('Error updating profile' + error.message);
+      alert("Error updating");
     }
-  }
+  };
+  
+  
+
+  
 
   const deleteHistory = async () => {
     try {
@@ -85,7 +101,24 @@ const formattedDate = currentDate.toLocaleDateString();
       console.error('Error deleting document: ', e);
     }
   };
+  const handleProfileInfo = async () => {
+    try {
+      const authUser = getAuth().currentUser;
+      console.log(authUser)
+  
+      if (authUser) {
+        const querySnapshot = await getDocs(collection(db,"User"+authUser.email));
+  
+        const newData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        return newData ;
+      }
+    } catch (error) {
+      alert('error');
+      console.error("Error fetching profileInfo: ", error);
+    }
+  };
+  
   
 
 
-export {addHistory, addProfile, updateProfile, deleteHistory}
+export {addHistory, addProfile, updateProfile, deleteHistory, handleProfileInfo}

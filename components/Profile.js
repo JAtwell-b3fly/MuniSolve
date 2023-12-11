@@ -1,7 +1,39 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import React from "react";
-
+import React, {useEffect, useState} from "react";
+import { handleProfileInfo } from "./ChatHistroyFirebase";
+import { useNavigation } from '@react-navigation/native';
 const Profile = ({navigation}) => {
+
+
+  const [profileInfo, setProfileInfo] = useState('');
+
+
+
+
+  useEffect(() =>{
+    handleProfileInfo().then ((data) =>{
+      console.log(data)
+      setProfileInfo(data);
+
+    })
+  }, [])
+
+  useEffect(() => {
+    console.log(profileInfo)
+    if (profileInfo && profileInfo.length > 0) {
+      console.log(profileInfo[0].Name);
+    } else {
+      console.log("Profile information not available");
+    } // Log the updated profileInfo
+  }, [profileInfo]);
+
+
+  const handleEditProfile = () => {
+    // Navigate to the EditProfileScreen
+    navigation.navigate('EditProfileScreen');
+  };
+
+
   return (
     <View style={{ backgroundColor: "#F5F2F2", flex: 1 }}>
       <View style={styles.top}>
@@ -12,21 +44,21 @@ const Profile = ({navigation}) => {
              source={require("../assets/user.png")}
              style={styles.profilePic}
              />
-       <Text style={styles.name}>Fezibongo Rubushe</Text>
-       <Text style={styles.email}>kabelo@gmail.com</Text>       
+       <Text style={styles.name}>{ profileInfo.length > 0 ? <View>{profileInfo[0].Name}</View>: <View></View>}</Text>
+       <Text style={styles.email}>{ profileInfo.length > 0 ? <View>{profileInfo[0].Email}</View>: <View></View>}</Text>       
       </View>
-      <View>
+      <View   >
         <Text style={styles.general}>GENERAL</Text>
-      </View>
-      <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
-        <View style={styles.infoContainer}>
+      </View> 
+      <TouchableOpacity      onPress={handleEditProfile}>
+        <View style={styles.infoContainer}  >
           <View style={styles.smallcontainer}>
             <Image
               source={require("../assets/Rectangle 98.png")}
               style={styles.icons}
             />
             <View>
-              <Text style={styles.subheading}>Profile Setting</Text>
+              <Text style={styles.subheading}>Edit</Text>
               <Text style={styles.infotext}>Update and modify your profile</Text>
             </View>
             <Image

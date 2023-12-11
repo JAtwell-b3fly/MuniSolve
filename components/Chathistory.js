@@ -1,8 +1,13 @@
 import { StyleSheet, Text, View, Image, } from 'react-native';
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { TouchableOpacity } from 'react-native-web';
-
+import { addHistory } from './ChatHistroyFirebase';
 const Chathistory = () => {
+
+    useEffect(() => {
+        addHistory()
+    }, [])
+
   return (
     <View style={{marginTop: 50}}>
   

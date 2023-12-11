@@ -1,10 +1,18 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from "react-native";
 import React, { useState } from 'react'
 import * as ImagePicker from 'expo-image-picker';
+import { updateProfile } from "./ChatHistroyFirebase";
 
 
-const Edit = () => {
+const EditProfile = () => {
     const [image, setImage] = useState(null);
+    const [profileInfo, setProfileInfo] =useState()
+    const [user, setUser] = useState({
+      name: '',
+      email: '',
+      phone: '',
+      address: '',
+    });
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -21,9 +29,12 @@ const Edit = () => {
         }
       };
 
+
+      
+
   return (
     <View>
-      <View style={styles.top}>
+      {/* <View style={styles.top}>
         <Text style={styles.header}>Edit Profile</Text>
         <TouchableOpacity style={styles.profilepic} onPress={pickImage}>
         {image && <Image source={{ uri: image }} style={{ width: 150, height: 150, borderRadius: 150 }} />}  
@@ -31,34 +42,38 @@ const Edit = () => {
       </View>
       <View style={styles.inputContainer}>
         <TextInput
-         style={styles.input}
-         placeholder='Username'
-         />
+          style={styles.input}
+          placeholder='Username'
+          value={user.name}
+          onChangeText={(name) => setUser({ ...user, name })}
+        />
         <TextInput
-         style={styles.input}
-         placeholder='Email'
-         />
+          style={styles.input}
+          placeholder='Email'
+          value={user.email}
+          onChangeText={(email) => setUser({ ...user, email })}
+        />
         <TextInput
-         style={styles.input}
-         placeholder='Phone'
-         />
+          style={styles.input}
+          placeholder='Phone'
+          value={user.number}
+          onChangeText={(number) => setUser({ ...user, number })}
+        />
         <TextInput
-         style={styles.input}
-         placeholder='Address'
-         />
-        <TextInput
-         style={styles.input}
-         placeholder='Date of Birth'
-         />
+          style={styles.input}
+          placeholder='Address'
+          value={user.address}
+          onChangeText={(address) => setUser({ ...user, address })}
+        />
+       
                                              
       </View>
-      <TouchableOpacity style={styles.saveBtn}>Save</TouchableOpacity>
+      <TouchableOpacity style={styles.saveBtn} onPress={Update}>Save</TouchableOpacity>
 
-      <TouchableOpacity style={styles.cancelBtn}>Cancel</TouchableOpacity>
+      <TouchableOpacity style={styles.cancelBtn}>Cancel</TouchableOpacity> */}
     </View>
   )
 }
-
 const styles = StyleSheet.create({
     top: {
        width: "430px",
@@ -121,4 +136,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Edit
+export default EditProfile

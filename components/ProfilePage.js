@@ -1,16 +1,37 @@
 import { View, Text, StyleSheet,Image } from 'react-native'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
-
+import { handleProfileInfo } from "./ChatHistroyFirebase";
 function ProfilePage({ ...props }) {
+
+  const [profileInfo, setProfileInfo] = useState([]);
+
+  useEffect(() =>{
+    handleProfileInfo().then ((data) =>{
+      console.log(data)
+      setProfileInfo(data);
+
+    })
+  }, [])
+
+  useEffect(() => {
+    console.log(profileInfo)
+    if (profileInfo && profileInfo.length > 0) {
+      console.log(profileInfo[0].Name);
+    } else {
+      console.log("Profile information not available");
+    } // Log the updated profileInfo
+  }, [profileInfo]);
+
   return (
+
     <DrawerContentScrollView {...props}>
       {/* Profile Section */}
       <View style={styles.profileContainer}>
         {/* <Text style={styles.profileText}>User Profile</Text> */}
         <Image style={styles.ProfileImage} source={require("../assets/close-up.jpg")} />
-         <Text style={styles.profileText}>Kabelo </Text>
-         <Text style={styles.profileEmail}>kabelo@gmail.com</Text>
+         <Text style={styles.profileText}>{ profileInfo.length > 0 ? <View>{profileInfo[0].Name}</View>: <View></View>}</Text>
+         <Text style={styles.profileEmail}>{ profileInfo.length > 0 ? <View>{profileInfo[0].Email}</View>: <View></View>}</Text>
          
       </View>
 

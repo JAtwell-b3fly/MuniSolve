@@ -16,39 +16,56 @@ export default function Login({ navigation }) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [touchedFields, setTouchedFields] = useState({
+    email: false,
+    password: false,
+  });
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
-  const toggleShowPassword = ({ navigation }) => {
-    setShowPassword(!showPassword);
-  };
 
   useEffect(() => {
     // Trigger form validation when email or password changes
     validateForm();
   }, [email, password]);
 
-  const validateForm = () => {
-    let errors = {};
-
-    // Validate email field
-    if (!email) {
-      errors.email = "Email is required.";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = "Email is invalid.";
-    }
-
-    // Validate password field
-    if (!password) {
-      errors.password = "Password is required.";
-    } else if (password.length < 6) {
-      errors.password = "Password must be at least 6 characters.";
-    }
-
-    setErrors(errors);
-    setIsFormValid(Object.keys(errors).length === 0);
+  const handleInputChange = (field, value) => {
+    // Mark the field as touched when typing
+    setTouchedFields({ ...touchedFields, [field]: true });
+    // Update the corresponding state
+    if (field === "email") setEmail(value);
+    if (field === "password") setPassword(value);
   };
 
+  const validateForm = () => {
+    let newErrors = {};
+
+    // Validate email field only if it has been touched
+    if (touchedFields.email) {
+      if (!email) {
+        newErrors.email = "Email is required.";
+      } else if (!/\S+@\S+\.\S+/.test(email)) {
+        newErrors.email = "Email is invalid.";
+      }
+    }
+
+    // Validate password field only if it has been touched
+    if (touchedFields.password) {
+      if (!password) {
+        newErrors.password = "Password is required.";
+      } else if (password.length < 6) {
+        newErrors.password = "Password must be at least 6 characters.";
+      }
+    }
+
+    setErrors(newErrors);
+    setIsFormValid(Object.keys(newErrors).length === 0);
+  };
+
+  const handleAuthStateChange = (user) => {
+    setUser(user);
+    if (initializing) setInitializing(false);
+  };
   const handleForgot = () => {
     validateForm(); // Trigger validation before attempting to sign in
 
@@ -93,14 +110,21 @@ export default function Login({ navigation }) {
           instructions to reset your password
         </Text>
         <View style={styles.inputContainer}>
-          <Image source={require("../assets/3.png")} style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            value={email}
-            onChangeText={setEmail}
-          />
-        </View>
+            <Image source={require("../assets/3.png")} style={styles.icon} />
+            <TextInput
+          style={[
+            styles.input,
+            touchedFields.email && errors.email
+              ? { borderColor: "red", borderWidth: 1 }
+              : null,
+          ]}
+          placeholder="Email"
+          value={email}
+          onChangeText={(value) => handleInputChange("email", value)}
+        />
+          </View>
+          <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
+          
         <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
         <Text style={{ textAlign: "center", fontSize: 16, color: "gray" }}>
           You remember your{" "}

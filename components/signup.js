@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { signUp } from "../components/LoginAuth";
 import Toast from "react-native-toast-message";
+import { addProfile } from "./ChatHistroyFirebase";
 
 const Signup = ({ navigation }) => {
   const [password, setPassword] = useState("");
@@ -21,75 +22,105 @@ const Signup = ({ navigation }) => {
   const [errors, setErrors] = useState({});
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [touchedFields, setTouchedFields] = useState({
+    email: false,
+    name: false,
+    number: false,
+    password: false,
+  });
 
   const toggleShowPassword = ({ navigation }) => {
     setShowPassword(!showPassword);
   };
 
   useEffect(() => {
-    // Trigger form validation when email or password changes
+    // Trigger form validation when fields change
     validateForm();
-  }, [email, password]);
+  }, [email, password, name, number]);
 
   const validateForm = () => {
-    let errors = {};
+    let newErrors = {};
 
-    // Validate email field
-    if (!email) {
-      errors.email = "Email is required.";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = "Email is invalid.";
+    // Validate email field only if it has been touched
+    if (touchedFields.email) {
+      if (!email) {
+        newErrors.email = "Email is required.";
+      } else if (!/\S+@\S+\.\S+/.test(email)) {
+        newErrors.email = "Email is invalid.";
+      }
     }
 
-    if (!name) {
-      errors.name = "Username is required.";
-    } else if (!/^[a-zA-Z0-9_-]{3,16}$/.test(name)) {
-      errors.name = "Username is invalid. It should contain only letters, numbers, hyphens, or underscores and be between 3 to 16 characters long.";
+    // Validate name field only if it has been touched
+    if (touchedFields.name) {
+      if (!name) {
+        newErrors.name = "Username is required.";
+      } else if (!/^[a-zA-Z0-9_-]{3,16}$/.test(name)) {
+        newErrors.name =
+          "Username is invalid. It should contain only letters, numbers, hyphens, or underscores and be between 3 to 16 characters long.";
+      }
     }
-    // Validate password field
-    if (!password) {
-      errors.password = "Password is required.";
-    } else if (password.length < 6) {
-      errors.password = "Password must be at least 6 characters.";
-    }
-    if (!number) {
-      errors.number = "Phone Number is required.";
-    } else if (number.length < 10) {
-      errors.number = "Phone Number must be at least 10 characters.";
-    }    
 
-    setErrors(errors);
-    setIsFormValid(Object.keys(errors).length === 0);
+    // Validate number field only if it has been touched
+    if (touchedFields.number) {
+      if (!number) {
+        newErrors.number = "Phone Number is required.";
+      } else if (number.length < 10) {
+        newErrors.number = "Phone Number must be at least 10 characters.";
+      }
+    }
+
+    // Validate password field only if it has been touched
+    if (touchedFields.password) {
+      if (!password) {
+        newErrors.password = "Password is required.";
+      } else if (password.length < 6) {
+        newErrors.password = "Password must be at least 6 characters.";
+      }
+    }
+
+    setErrors(newErrors);
+    setIsFormValid(Object.keys(newErrors).length === 0);
   };
 
-  const handleSignup = async (user) => {
-    setUserId(user);
+  const handleInputChange = (field, value) => {
+    // Mark the field as touched when typing
+    setTouchedFields({ ...touchedFields, [field]: true });
+    // Update the corresponding state
+    if (field === "email") setEmail(value);
+    if (field === "password") setPassword(value);
+    if (field === "name") setName(value);
+    if (field === "number") setNumber(value);
+  };
+
+  const handleSignup = async () => {
     if (isFormValid) {
-    try {
-      setLoading(true);
-      signUp(email, password)
-        .then(() => {
-          navigation.navigate("Profile");
-          Toast.show({
-            type: "success",
-            position: "top",
-            text1: "Signup Successful",
-            visibilityTime: 3000, // 3 seconds
-            autoHide: true,
+      try {
+        setLoading(true);
+        signUp(email, password)
+          .then(() => {
+            addProfile(email, name, address, number);
+            navigation.navigate("Profile");
+            Toast.show({
+              type: "success",
+              position: "top",
+              text1: "Signup Successful",
+              visibilityTime: 3000, // 3 seconds
+              autoHide: true,
+            });
+          })
+          .catch(() => {
+            Toast.show({
+              type: "error",
+              position: "top",
+              text1: "Error in Creating account",
+              visibilityTime: 3000, // 3 seconds
+              autoHide: true,
+            });
+            setLoading(false);
           });
-        })
-        .catch(() => {
-          Toast.show({
-            type: "error",
-            position: "top",
-            text1: "Error in Creating account",
-            visibilityTime: 3000, // 3 seconds
-            autoHide: true,
-          });
-          setLoading(false);
-        });
-    } catch (error) {}
-  }
+      } catch (error) {}
+    }
   };
   return (
     <View>
@@ -101,44 +132,49 @@ const Signup = ({ navigation }) => {
       <View style={styles.signup}>
         <Text style={styles.title}>SIGN IN</Text>
         <View style={styles.inputContainer}>
-          <Image source={require("../assets/user.png")} style={styles.icon} />
-          <TextInput style={styles.input} 
-          placeholder="Username" 
+        <Image source={require("../assets/user.png")} style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
           value={name}
-          onChangeText={setName}
-          />
-        </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.name}</Text>
-        <View style={styles.inputContainer}>
-          <Image source={require("../assets/3.png")} style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            value={email}
-            onChangeText={setEmail}
-          />
-        </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
-        <View style={styles.inputContainer}>
-          <Image source={require("../assets/2.png")} style={styles.icon} />
-          <TextInput style={styles.input} 
-          placeholder="Mobile Number" 
+          onChangeText={(value) => handleInputChange("name", value)}
+        />
+      </View>
+      <Text style={{ color: "red", marginLeft: 24 }}>{errors.name}</Text>
+
+      <View style={styles.inputContainer}>
+        <Image source={require("../assets/3.png")} style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          value={email}
+          onChangeText={(value) => handleInputChange("email", value)}
+        />
+      </View>
+      <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
+
+      <View style={styles.inputContainer}>
+        <Image source={require("../assets/2.png")} style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Mobile Number"
           value={number}
-          onChangeText={setNumber}
-          />
-        </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.number}</Text>
-        <View style={styles.inputContainer}>
-          <Image source={require("../assets/MUNI.png")} style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-          />
-          
-        </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>
+          onChangeText={(value) => handleInputChange("number", value)}
+        />
+      </View>
+      <Text style={{ color: "red", marginLeft: 24 }}>{errors.number}</Text>
+
+      <View style={styles.inputContainer}>
+        <Image source={require("../assets/MUNI.png")} style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          value={password}
+          onChangeText={(value) => handleInputChange("password", value)}
+        />
+      </View>
+      <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>
+      
         {loading ? (
           <ActivityIndicator size="large" color="#0000FF" />
         ) : (

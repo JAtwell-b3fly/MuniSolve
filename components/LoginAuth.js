@@ -63,13 +63,12 @@ const forgotPassword = async (email, ) => {
 };
 
 const logout = async () => {
-  try {
-    await AsyncStorage.removeItem("userToken"); // Remove user token from AsyncStorage on logout
-    await signOut(auth);
-    console.log("User logged out");
-  } catch (error) {
-    console.error("Logout error:", error);
-  }
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    // Sign-out successful.
+  }).catch((error) => {
+    // An error happened.
+  });
 };
 
 const KeepuserLogin = async () =>{
