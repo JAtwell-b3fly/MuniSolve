@@ -28,10 +28,7 @@ const Profile = ({navigation}) => {
   }, [profileInfo]);
 
 
-  const handleEditProfile = () => {
-    // Navigate to the EditProfileScreen
-    navigation.navigate('EditProfileScreen');
-  };
+
 
 
   return (
@@ -50,7 +47,7 @@ const Profile = ({navigation}) => {
       <View   >
         <Text style={styles.general}>GENERAL</Text>
       </View> 
-      <TouchableOpacity      onPress={handleEditProfile}>
+      <TouchableOpacity onPress={() => navigation.navigate("EditProfileScreen")}>
         <View style={styles.infoContainer}  >
           <View style={styles.smallcontainer}>
             <Image

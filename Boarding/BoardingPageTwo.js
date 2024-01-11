@@ -7,12 +7,14 @@ const BoardingPageTwo = () => {
 
   return (
     <View style={styles.MainContainer}>
-      <TouchableOpacity style={styles.SkipButton} onPress={() => navigation.navigate("Profile")}>SKIP</TouchableOpacity>
+      <TouchableOpacity style={styles.SkipButton} onPress={() => navigation.navigate("Login")}> <Text style={styles.SkipButton}>SKIP</Text></TouchableOpacity>
       <Image style={styles.BoardingImageOne} source={require("../assets/virtual-influencer.jpg")} />
-      <Text style={styles.Subtitle}>Personalized Assistance:</Text>
-      <Text style={styles.Paragraph}>The chatbot can provide personalized assistance by
-        remembering user preferences and previous interactions.
-      </Text>
+      
+        <Text style={styles.Subtitle}>Personalized Assistance:</Text>
+        <Text style={styles.Paragraph}>The chatbot can provide personalized assistance by
+          remembering user preferences and previous interactions.
+        </Text>
+      
 
       <View style={{ flexDirection: "row", marginTop: 70 }}>
         <View style={{ flexDirection: "row", marginRight: 120, marginLeft: -30, marginTop: 15 }}>
@@ -39,11 +41,13 @@ const styles = StyleSheet.create({
 
   SkipButton: {
     color: "#22719E",
-    textAlign: "end",
+    
     marginBottom: 20,
     marginLeft: 180,
     marginTop: 70,
-    fontFamily: "sansSerif",
+    
+    fontSize: 22,
+    marginRight: 90,
   },
 
   BoardingImageOne: {
@@ -56,7 +60,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#22719E",
     marginLeft: -80,
-    fontWeight: '500', // Corrected the fontWeight value
+    
   },
 
   Paragraph: {

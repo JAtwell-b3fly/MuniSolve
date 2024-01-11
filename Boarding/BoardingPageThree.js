@@ -4,12 +4,14 @@ import React from 'react'
 const BoardingPageThree = ({navigation}) => {
     return (
         <View style={styles.MainContainer}>
-          <TouchableOpacity  style={styles.SkipButton} onPress={() => navigation.navigate("Login")}>SKIP</TouchableOpacity>
+         <TouchableOpacity style={styles.SkipButton} onPress={() => navigation.navigate("Login")}> <Text style={styles.SkipButton}>SKIP</Text></TouchableOpacity>
           <Image style={styles.BoardingImageOne} source={require("../assets/artificial.jpg")} />
-          <Text style={styles.Subtitle}>FAQ Database:</Text>
-          <Text style={styles.Paragraph}>Munibot is equipped with an extensive database of frequently
-           asked questions and their corresponding answers.
-             </Text>
+          
+              <Text style={styles.Subtitle}>FAQ Database:</Text>
+              <Text style={styles.Paragraph}>Munibot is equipped with an extensive database of frequently
+               asked questions and their corresponding answers.
+                 </Text>
+          
     
              <View style={{flexDirection:"row",marginTop:70}}>
                 <View style={{flexDirection:"row",marginRight:120,marginLeft:-30,marginTop:15}}>
@@ -37,18 +39,20 @@ const BoardingPageThree = ({navigation}) => {
         },
     
         SkipButton: {
-            color:"#22719E",
-            textAlign:"center",
-            marginBottom:20,
-            marginLeft:180,
-            marginTop:70,
-            fontFamily: "sansSerif",
-        },
+            color: "#22719E",
+            
+            marginBottom: 20,
+            marginLeft: 180,
+            marginTop: 70,
+            
+            fontSize: 22,
+            marginRight: 90,
+          },
     
         BoardingImageOne: {
             height:350,
             width:290,
-            alignContent:"center",
+            
         },
     
         Subtitle: {

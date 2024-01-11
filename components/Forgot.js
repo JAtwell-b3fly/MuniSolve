@@ -103,8 +103,10 @@ export default function Login({ navigation }) {
         source={require("../assets/background.png")}
       />
       <Image style={styles.logo} source={require("../assets/BotIcon.gif")} />
+      <Text style={styles.appName}>MUNI-SOLVE</Text>
+      <Text style={styles.appSlogan}>AI-powered solutions for better communities</Text>
       <View style={styles.signup}>
-        <Text style={styles.title}>SIGN IN</Text>
+        <Text style={styles.title}>Forgot Password</Text>
         <Text style={styles.paragraph}>
           Enter the email address you used when you joined and we’ll send you
           instructions to reset your password
@@ -182,6 +184,28 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 700,
     marginBottom: 40,
+  },
+  appName: {
+    color: "#22719E",
+    textAlign: "center",
+    marginTop: 20,
+    fontSize: 28,
+    fontWeight: 700,
+    marginBottom:60,
+    position: "absolute",
+    alignSelf: "center",
+    marginTop: 240,
+  },
+  appSlogan: {
+    color: "#000",
+    textAlign: "center",
+    marginTop: 20,
+    fontSize: 14,
+    fontWeight: 700,
+    marginBottom:60,
+    position: "absolute",
+    alignSelf: "center",
+    marginTop: 270, 
   },
 
   inputContainer: {

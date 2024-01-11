@@ -1,4 +1,4 @@
-import { collection, addDoc, updateDoc, doc, deleteDoc, serverTimestamp, getDocs } from "firebase/firestore";
+import {collection, addDoc, updateDoc, doc, deleteDoc, serverTimestamp, getDocs,  } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { getAuth } from "firebase/auth";
 
@@ -27,11 +27,31 @@ const formattedDate = currentDate.toLocaleDateString();
     
   };
 
-  const addProfile = async (email, address, name, number) => {
+  const fetchHistory = async () => {
+    try {
+      const authUser = getAuth().currentUser;
+      if (!authUser) {
+        console.error('User not authenticated');
+        return [];
+      }
+  
+      const querySnapshot = await getDocs(collection(db, formattedDate + authUser.uid));
+      const newData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  
+      return newData;
+    } catch (error) {
+      console.error('Error fetching history: ', error);
+      return [];
+    }
+  };
+  
+  
+
+  const addProfile = async (email,  name, number) => {
     try {
       const docRef = await addDoc(collection(db, "User"+ email), {
         Email: email,
-        Address: address,
+        
         Name: name,
         
         Number: number,
@@ -117,8 +137,10 @@ const formattedDate = currentDate.toLocaleDateString();
       console.error("Error fetching profileInfo: ", error);
     }
   };
+
+  
   
   
 
 
-export {addHistory, addProfile, updateProfile, deleteHistory, handleProfileInfo}
+export {addHistory, fetchHistory, addProfile, updateProfile, deleteHistory, handleProfileInfo}

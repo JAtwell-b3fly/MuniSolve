@@ -34,7 +34,7 @@ const EditProfile = () => {
 
   return (
     <View>
-      {/* <View style={styles.top}>
+      <View style={styles.top}>
         <Text style={styles.header}>Edit Profile</Text>
         <TouchableOpacity style={styles.profilepic} onPress={pickImage}>
         {image && <Image source={{ uri: image }} style={{ width: 150, height: 150, borderRadius: 150 }} />}  
@@ -68,9 +68,9 @@ const EditProfile = () => {
        
                                              
       </View>
-      <TouchableOpacity style={styles.saveBtn} onPress={Update}>Save</TouchableOpacity>
+      <TouchableOpacity style={styles.saveBtn} > <Text style={styles.saveBtn}>Save</Text></TouchableOpacity>
 
-      <TouchableOpacity style={styles.cancelBtn}>Cancel</TouchableOpacity> */}
+      <TouchableOpacity style={styles.cancelBtn}><Text style={styles.cancelBtn}>Cancel</Text></TouchableOpacity>
     </View>
   )
 }

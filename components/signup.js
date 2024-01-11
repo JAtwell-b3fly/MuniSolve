@@ -99,7 +99,7 @@ const Signup = ({ navigation }) => {
         setLoading(true);
         signUp(email, password)
           .then(() => {
-            addProfile(email, name, address, number);
+            addProfile(email, name, number);
             navigation.navigate("Profile");
             Toast.show({
               type: "success",
@@ -129,6 +129,8 @@ const Signup = ({ navigation }) => {
         source={require("../assets/background.png")}
       />
       <Image style={styles.logo} source={require("../assets/BotIcon.gif")} />
+      <Text style={styles.appName}>MUNI-SOLVE</Text>
+      <Text style={styles.appSlogan}>AI-powered solutions for better communities</Text>
       <View style={styles.signup}>
         <Text style={styles.title}>SIGN IN</Text>
         <View style={styles.inputContainer}>
@@ -191,7 +193,7 @@ const Signup = ({ navigation }) => {
             style={styles.login}
             onPress={() => navigation.navigate("Login")}
           >
-            Login
+           <Text style={styles.login}> Login</Text> 
           </TouchableOpacity>
         </Text>
       </View>
@@ -229,6 +231,28 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 700,
     marginBottom: 60,
+  },
+  appName: {
+    color: "#22719E",
+    textAlign: "center",
+    marginTop: 20,
+    fontSize: 28,
+    fontWeight: 700,
+    marginBottom:60,
+    position: "absolute",
+    alignSelf: "center",
+    marginTop: 240,
+  },
+  appSlogan: {
+    color: "#000",
+    textAlign: "center",
+    marginTop: 20,
+    fontSize: 14,
+    fontWeight: 700,
+    marginBottom:60,
+    position: "absolute",
+    alignSelf: "center",
+    marginTop: 270, 
   },
 
   inputContainer: {

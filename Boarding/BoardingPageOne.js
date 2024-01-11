@@ -4,13 +4,15 @@ import React from 'react'
 const BoardingPageOne = ({navigation}) => {
   return (
     <View style={styles.MainContainer}>
-      <TouchableOpacity  style={styles.SkipButton} onPress={() => navigation.navigate("Login")}>SKIP</TouchableOpacity>
+     <TouchableOpacity style={styles.SkipButton} onPress={() => navigation.navigate("Login")}> <Text style={styles.SkipButton}>SKIP</Text></TouchableOpacity>
       <Image style={styles.BoardingImageOne} source={require("../assets/chatbot-artificial.jpg")} />
-      <Text style={styles.Subtitle}>Description:</Text>
-      <Text style={styles.Paragraph}>Munibot is an intelligent and user-friendly chatbot
-         designed to assist residents and stakeholders with common
-         inquiries related to municipal services and information.
-         </Text>
+      
+          <Text style={styles.Subtitle}>Description:</Text>
+          <Text style={styles.Paragraph}>Munibot is an intelligent and user-friendly chatbot
+             designed to assist residents and stakeholders with common
+             inquiries related to municipal services and information.
+             </Text>
+      
 
          <View style={{flexDirection:"row",marginTop:70}}>
             <View style={{flexDirection:"row",marginRight:120,marginLeft:-30,marginTop:15}}>
@@ -38,13 +40,15 @@ const styles = StyleSheet.create({
     },
 
     SkipButton: {
-        color:"#22719E",
-        textAlign:"center",
-        marginBottom:20,
-        marginLeft:180,
-        marginTop:70,
-        fontFamily: "sansSerif",
-    },
+        color: "#22719E",
+        
+        marginBottom: 20,
+        marginLeft: 180,
+        marginTop: 70,
+        
+        fontSize: 22,
+        marginRight: 90,
+      },
 
     BoardingImageOne: {
         height:350,
@@ -56,7 +60,7 @@ const styles = StyleSheet.create({
         fontSize:15,
         color:"#22719E",
         marginLeft:-140,
-        fontWeight:500,
+        
     },
 
     Paragraph: {

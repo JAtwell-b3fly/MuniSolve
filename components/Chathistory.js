@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View, Image, } from 'react-native';
 import React, {useEffect, useState} from 'react'
 import { TouchableOpacity } from 'react-native-web';
-import { addHistory } from './ChatHistroyFirebase';
+import { fetchHistory } from './ChatHistroyFirebase';
 const Chathistory = () => {
-
+     const [history, setHistory] = useState([]);
+     
     useEffect(() => {
-        addHistory()
+        fetchHistory()
     }, [])
 
   return (

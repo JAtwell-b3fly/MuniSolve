@@ -106,9 +106,12 @@ export default function Login({navigation }) {
         style={styles.backgroundImage}
         source={require("../assets/background.png")}
       />
+      <Text style={styles.appName}>MUNI-SOLVE</Text>
+      <Text style={styles.appSlogan}>AI-powered solutions for better communities</Text> 
       <Image style={styles.logo} source={require("../assets/BotIcon.gif")} />
       <View style={styles.signup}>
         <Text style={styles.title}>SIGN IN</Text>
+         
         <View style={styles.inputContainer}>
             <Image source={require("../assets/3.png")} style={styles.icon} />
             <TextInput
@@ -151,7 +154,7 @@ export default function Login({navigation }) {
         {/* Toast component for notifications */}
         <Toast ref={(ref) => Toast.setRef(ref)} />
 
-          <Text style={{textAlign: 'center', fontSize: 16, color: "gray", marginTop: 5, marginLeft: 20}}>Do you have An Account? <TouchableOpacity style={styles.remember} onPress={() => navigation.navigate('Signup')}>Create</TouchableOpacity></Text>                   
+          <Text style={{textAlign: 'center', fontSize: 16, color: "gray", marginTop: 5, marginLeft: 20}}>Do you have An Account? <TouchableOpacity style={styles.remember} onPress={() => navigation.navigate('Signup')}> <Text style={styles.remember} >Create</Text></TouchableOpacity></Text>                   
       </View>
     </View>
   );
@@ -187,6 +190,28 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 700,
     marginBottom:60
+  },
+  appName: {
+    color: "#22719E",
+    textAlign: "center",
+    marginTop: 20,
+    fontSize: 28,
+    fontWeight: 700,
+    marginBottom:60,
+    position: "absolute",
+    alignSelf: "center",
+    marginTop: 240,
+  },
+  appSlogan: {
+    color: "#000",
+    textAlign: "center",
+    marginTop: 20,
+    fontSize: 14,
+    fontWeight: 700,
+    marginBottom:60,
+    position: "absolute",
+    alignSelf: "center",
+    marginTop: 270, 
   },
 
   inputContainer: {
