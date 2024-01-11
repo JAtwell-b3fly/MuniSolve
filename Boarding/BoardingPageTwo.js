@@ -7,7 +7,9 @@ const BoardingPageTwo = () => {
 
   return (
     <View style={styles.MainContainer}>
-      <TouchableOpacity style={styles.SkipButton} onPress={() => navigation.navigate("Login")}> <Text style={styles.SkipButton}>SKIP</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.SkipButtonContainer} onPress={() => navigation.navigate("Login")}>
+      <Text style={styles.SkipButtonText}>SKIP</Text>
+    </TouchableOpacity>
       <Image style={styles.BoardingImageOne} source={require("../assets/virtual-influencer.jpg")} />
       
         <Text style={styles.Subtitle}>Personalized Assistance:</Text>
@@ -39,27 +41,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  SkipButton: {
-    color: "#22719E",
-    
+  SkipButtonContainer: {
     marginBottom: 20,
     marginLeft: 180,
     marginTop: 70,
-    
-    fontSize: 22,
     marginRight: 90,
+    marginTop: '-10px',
+  },
+
+  SkipButtonText: {
+    color: "#22719E",
+    
+    fontSize: 18,
   },
 
   BoardingImageOne: {
     height: 350,
     width: 290,
-    alignContent: "center",
   },
 
   Subtitle: {
     fontSize: 15,
     color: "#22719E",
-    marginLeft: -80,
+    marginLeft: -140,
     
   },
 
@@ -67,7 +71,7 @@ const styles = StyleSheet.create({
     color: "#9A8E8E",
     width: 250,
     marginLeft: 25,
-    marginTop: 10
+    marginTop: 10,
   },
 
   NextPageArrow: {

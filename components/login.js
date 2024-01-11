@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,12 +7,12 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  ActivityIndicator
+  ActivityIndicator,
 } from "react-native";
-import {loginAuth} from '../components/LoginAuth';
+import { loginAuth } from "../components/LoginAuth";
 import Toast from "react-native-toast-message";
 
-export default function Login({navigation }) {
+export default function Login({ navigation }) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -98,8 +98,6 @@ export default function Login({navigation }) {
     }
   };
 
-    
-
   return (
     <View>
       <ImageBackground
@@ -107,54 +105,79 @@ export default function Login({navigation }) {
         source={require("../assets/background.png")}
       />
       <Text style={styles.appName}>MUNI-SOLVE</Text>
-      <Text style={styles.appSlogan}>AI-powered solutions for better communities</Text> 
+      <Text style={styles.appSlogan}>
+        AI-powered solutions for better communities
+      </Text>
       <Image style={styles.logo} source={require("../assets/BotIcon.gif")} />
+
       <View style={styles.signup}>
         <Text style={styles.title}>SIGN IN</Text>
-         
+        <View>
+          <Text>Forgot password</Text>
+        </View>
+
         <View style={styles.inputContainer}>
-            <Image source={require("../assets/3.png")} style={styles.icon} />
-            <TextInput
-          style={[
-            styles.input,
-            touchedFields.email && errors.email
-              ? { borderColor: "red", borderWidth: 1 }
-              : null,
-          ]}
-          placeholder="Email"
-          value={email}
-          onChangeText={(value) => handleInputChange("email", value)}
-        />
-          </View>
-          <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
-          
-          <View style={styles.inputContainer}>
-            <Image source={require("../assets/MUNI.png")} style={styles.icon} />
-            <TextInput
-          style={[
-            styles.input,
-            touchedFields.password && errors.password
-              ? { borderColor: "red", borderWidth: 1 }
-              : null,
-          ]}
-          placeholder="Password"
-          value={password}
-          onChangeText={(value) => handleInputChange("password", value)}
-        />
-          </View>
-          <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>          
-          <TouchableOpacity onPress={() => navigation.navigate("Forgot")}><Text style={{textAlign: 'end', fontSize: "16px", color: "#22719E", marginRight: 30}}>FORGOT PASSWORD</Text></TouchableOpacity>
-          {loading ? (
+          <Image source={require("../assets/3.png")} style={styles.icon} />
+          <TextInput
+            style={[
+              styles.input,
+              touchedFields.email && errors.email
+                ? { borderColor: "red", borderWidth: 1 }
+                : null,
+            ]}
+            placeholder="Email"
+            value={email}
+            onChangeText={(value) => handleInputChange("email", value)}
+          />
+        </View>
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
+
+        <View style={styles.inputContainer}>
+          <Image source={require("../assets/MUNI.png")} style={styles.icon} />
+          <TextInput
+            style={[
+              styles.input,
+              touchedFields.password && errors.password
+                ? { borderColor: "red", borderWidth: 1 }
+                : null,
+            ]}
+            placeholder="Password"
+            value={password}
+            onChangeText={(value) => handleInputChange("password", value)}
+          />
+        </View>
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>
+
+        {loading ? (
           <ActivityIndicator size="large" color="#0000FF" />
         ) : (
-          <TouchableOpacity  >
-          <Text style={styles.Loginbtn} onPress={handleLogin}>SIGN IN</Text>
+          <TouchableOpacity>
+            <Text style={styles.Loginbtn} onPress={handleLogin}>
+              SIGN IN
+            </Text>
           </TouchableOpacity>
         )}
-        {/* Toast component for notifications */}
+
         <Toast ref={(ref) => Toast.setRef(ref)} />
 
-          <Text style={{textAlign: 'center', fontSize: 16, color: "gray", marginTop: 5, marginLeft: 20}}>Do you have An Account? <TouchableOpacity style={styles.remember} onPress={() => navigation.navigate('Signup')}> <Text style={styles.remember} >Create</Text></TouchableOpacity></Text>                   
+        <View
+          style={{
+            flexDirection: "row",
+            marginTop: 5,
+            marginLeft: 20,
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontSize: 16, color: "gray" }}>
+            Do you have an account?{" "}
+          </Text>
+          <TouchableOpacity
+            style={styles.remember}
+            onPress={() => navigation.navigate("Signup")}
+          >
+            <Text style={styles.remember}>Create</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -188,16 +211,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
     fontSize: 28,
-    fontWeight: 700,
-    marginBottom:60
+
+    marginBottom: 60,
   },
   appName: {
     color: "#22719E",
     textAlign: "center",
     marginTop: 20,
     fontSize: 28,
-    fontWeight: 700,
-    marginBottom:60,
+
+    marginBottom: 60,
     position: "absolute",
     alignSelf: "center",
     marginTop: 240,
@@ -206,26 +229,26 @@ const styles = StyleSheet.create({
     color: "#000",
     textAlign: "center",
     marginTop: 20,
-    fontSize: 14,
-    fontWeight: 700,
-    marginBottom:60,
+    fontSize: 12,
+
+    marginBottom: 60,
     position: "absolute",
     alignSelf: "center",
-    marginTop: 270, 
+    marginTop: 275,
   },
 
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     paddingHorizontal: 7,
     marginVertical: 10,
-    backgroundColor:'#ffff',
-    width:250,
-    height:40,
-    marginLeft:24,
-    shadowColor: '#000',
+    backgroundColor: "#ffff",
+    width: 250,
+    height: 40,
+    marginLeft: 24,
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.7,
     shadowRadius: 4,
@@ -234,44 +257,41 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     marginRight: 10,
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
   input: {
     flex: 1,
     height: 40,
-    borderColor:'#ffff'
-
+    borderColor: "#ffff",
   },
-  Loginbtn:{
-    borderWidth:1,
-    width:250,
-    height:40,
-    textAlign:'center',
-    paddingTop:9,
-    alignSelf:'center',
-    marginTop:40,
-    backgroundColor:'#22719E',
-    borderColor:'#22719E',
-    color:'#ffff',
-    shadowColor: '#000',
+  Loginbtn: {
+    borderWidth: 1,
+    width: 250,
+    height: 40,
+    textAlign: "center",
+    paddingTop: 9,
+    alignSelf: "center",
+    marginTop: 40,
+    backgroundColor: "#22719E",
+    borderColor: "#22719E",
+    color: "#ffff",
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.7,
     shadowRadius: 4,
   },
-  btn2:{
-    textAlign:'center',
-    marginTop:10,
-    color:'#22719E',
-    fontWeight:700,
+  btn2: {
+    textAlign: "center",
+    marginTop: 10,
+    color: "#22719E",
   },
-  forgot:{
-    
-    marginTop:10,
+  forgot: {
+    marginTop: 10,
     fontSize: 16,
-    color:'#22719E',
+    color: "#22719E",
   },
-  remember:{
-    marginTop:5,
-    color:'#22719E',
+  remember: {
+    marginTop: 5,
+    color: "#22719E",
   },
 });

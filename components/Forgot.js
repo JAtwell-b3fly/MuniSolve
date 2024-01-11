@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -70,31 +70,31 @@ export default function Login({ navigation }) {
     validateForm(); // Trigger validation before attempting to sign in
 
     if (isFormValid) {
-    try {
-      setLoading(true);
-      forgotPassword(email)
-        .then(() => {
-          navigation.navigate("Profile");
-          Toast.show({
-            type: "success",
-            position: "top",
-            text1: "Check Your email",
-            visibilityTime: 3000, // 3 seconds
-            autoHide: true,
+      try {
+        setLoading(true);
+        forgotPassword(email)
+          .then(() => {
+            navigation.navigate("Profile");
+            Toast.show({
+              type: "success",
+              position: "top",
+              text1: "Check Your email",
+              visibilityTime: 3000, // 3 seconds
+              autoHide: true,
+            });
+          })
+          .catch(() => {
+            Toast.show({
+              type: "error",
+              position: "top",
+              text1: "Error in Creating account",
+              visibilityTime: 3000, // 3 seconds
+              autoHide: true,
+            });
+            setLoading(false);
           });
-        })
-        .catch(() => {
-          Toast.show({
-            type: "error",
-            position: "top",
-            text1: "Error in Creating account",
-            visibilityTime: 3000, // 3 seconds
-            autoHide: true,
-          });
-          setLoading(false);
-        });
-    } catch (error) {}
-  }
+      } catch (error) {}
+    }
   };
   return (
     <View>
@@ -104,7 +104,9 @@ export default function Login({ navigation }) {
       />
       <Image style={styles.logo} source={require("../assets/BotIcon.gif")} />
       <Text style={styles.appName}>MUNI-SOLVE</Text>
-      <Text style={styles.appSlogan}>AI-powered solutions for better communities</Text>
+      <Text style={styles.appSlogan}>
+        AI-powered solutions for better communities
+      </Text>
       <View style={styles.signup}>
         <Text style={styles.title}>Forgot Password</Text>
         <Text style={styles.paragraph}>
@@ -112,40 +114,47 @@ export default function Login({ navigation }) {
           instructions to reset your password
         </Text>
         <View style={styles.inputContainer}>
-            <Image source={require("../assets/3.png")} style={styles.icon} />
-            <TextInput
-          style={[
-            styles.input,
-            touchedFields.email && errors.email
-              ? { borderColor: "red", borderWidth: 1 }
-              : null,
-          ]}
-          placeholder="Email"
-          value={email}
-          onChangeText={(value) => handleInputChange("email", value)}
-        />
-          </View>
-          <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
-          
+          <Image source={require("../assets/3.png")} style={styles.icon} />
+          <TextInput
+            style={[
+              styles.input,
+              touchedFields.email && errors.email
+                ? { borderColor: "red", borderWidth: 1 }
+                : null,
+            ]}
+            placeholder="Email"
+            value={email}
+            onChangeText={(value) => handleInputChange("email", value)}
+          />
+        </View>
         <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
-        <Text style={{ textAlign: "center", fontSize: 16, color: "gray" }}>
-          You remember your{" "}
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontSize: 16, color: "gray" }}>You remember your</Text>
           <TouchableOpacity
             style={styles.remember}
             onPress={() => navigation.navigate("Login")}
           >
-            Login
+            <Text style={styles.remember}> Login</Text>
           </TouchableOpacity>
-        </Text>
+        </View>
 
         {loading ? (
           <ActivityIndicator size="large" color="#0000FF" />
         ) : (
-          <TouchableOpacity onPress={handleForgot}>
-            <Text style={styles.Restbtn}>Rest Password</Text>
+          <TouchableOpacity>
+            <Text style={styles.Loginbtn} onPress={handleForgot}>
+              SIGN IN
+            </Text>
           </TouchableOpacity>
         )}
-        {/* Toast component for notifications */}
+
         <Toast ref={(ref) => Toast.setRef(ref)} />
       </View>
     </View>
@@ -166,9 +175,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   signup: {
-
-    height: 0,
-
+    height: 100,
     width: 300,
     backgroundColor: "#F0F1F1",
     position: "absolute",
@@ -182,16 +189,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
     fontSize: 28,
-    fontWeight: 700,
-    marginBottom: 40,
+
+    marginBottom: 60,
   },
   appName: {
     color: "#22719E",
     textAlign: "center",
     marginTop: 20,
     fontSize: 28,
-    fontWeight: 700,
-    marginBottom:60,
+
+    marginBottom: 60,
     position: "absolute",
     alignSelf: "center",
     marginTop: 240,
@@ -200,12 +207,12 @@ const styles = StyleSheet.create({
     color: "#000",
     textAlign: "center",
     marginTop: 20,
-    fontSize: 14,
-    fontWeight: 700,
-    marginBottom:60,
+    fontSize: 12,
+
+    marginBottom: 60,
     position: "absolute",
     alignSelf: "center",
-    marginTop: 270, 
+    marginTop: 275,
   },
 
   inputContainer: {
@@ -235,14 +242,14 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: "#ffff",
   },
-  Restbtn: {
+  Loginbtn: {
     borderWidth: 1,
     width: 250,
     height: 40,
     textAlign: "center",
     paddingTop: 9,
     alignSelf: "center",
-    marginTop: 20,
+    marginTop: 40,
     backgroundColor: "#22719E",
     borderColor: "#22719E",
     color: "#ffff",
@@ -255,21 +262,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10,
     color: "#22719E",
-    fontWeight: 700,
   },
-  remember: {
+  forgot: {
     marginTop: 10,
-
+    fontSize: 16,
     color: "#22719E",
   },
-  paragraph: {
-    width: 280,
-    fontWeight: 500,
-    color: "gray",
-    marginLeft: 10,
-    marginTop: 10,
-    textAlign: "center",
-    marginBottom: 20,
-    fontSize: 16,
+  remember: {
+    marginTop: 5,
+    color: "#22719E",
   },
 });

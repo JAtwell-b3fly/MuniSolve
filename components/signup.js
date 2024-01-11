@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -130,72 +130,84 @@ const Signup = ({ navigation }) => {
       />
       <Image style={styles.logo} source={require("../assets/BotIcon.gif")} />
       <Text style={styles.appName}>MUNI-SOLVE</Text>
-      <Text style={styles.appSlogan}>AI-powered solutions for better communities</Text>
+      <Text style={styles.appSlogan}>
+        AI-powered solutions for better communities
+      </Text>
       <View style={styles.signup}>
         <Text style={styles.title}>SIGN IN</Text>
         <View style={styles.inputContainer}>
-        <Image source={require("../assets/user.png")} style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-          value={name}
-          onChangeText={(value) => handleInputChange("name", value)}
-        />
-      </View>
-      <Text style={{ color: "red", marginLeft: 24 }}>{errors.name}</Text>
+          <Image source={require("../assets/user.png")} style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Username"
+            value={name}
+            onChangeText={(value) => handleInputChange("name", value)}
+          />
+        </View>
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.name}</Text>
 
-      <View style={styles.inputContainer}>
-        <Image source={require("../assets/3.png")} style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          value={email}
-          onChangeText={(value) => handleInputChange("email", value)}
-        />
-      </View>
-      <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
+        <View style={styles.inputContainer}>
+          <Image source={require("../assets/3.png")} style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            value={email}
+            onChangeText={(value) => handleInputChange("email", value)}
+          />
+        </View>
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
 
-      <View style={styles.inputContainer}>
-        <Image source={require("../assets/2.png")} style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Mobile Number"
-          value={number}
-          onChangeText={(value) => handleInputChange("number", value)}
-        />
-      </View>
-      <Text style={{ color: "red", marginLeft: 24 }}>{errors.number}</Text>
+        <View style={styles.inputContainer}>
+          <Image source={require("../assets/2.png")} style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Mobile Number"
+            value={number}
+            onChangeText={(value) => handleInputChange("number", value)}
+          />
+        </View>
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.number}</Text>
 
-      <View style={styles.inputContainer}>
-        <Image source={require("../assets/MUNI.png")} style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          value={password}
-          onChangeText={(value) => handleInputChange("password", value)}
-        />
-      </View>
-      <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>
-      
+        <View style={styles.inputContainer}>
+          <Image source={require("../assets/MUNI.png")} style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            value={password}
+            onChangeText={(value) => handleInputChange("password", value)}
+          />
+        </View>
+        <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>
+
         {loading ? (
           <ActivityIndicator size="large" color="#0000FF" />
         ) : (
-          <TouchableOpacity onPress={handleSignup}>
-            <Text style={styles.Signupbtn}>SIGN UP</Text>
+          <TouchableOpacity>
+            <Text style={styles.Loginbtn} onPress={handleSignup}>
+              SIGN IN
+            </Text>
           </TouchableOpacity>
         )}
-        {/* Toast component for notifications */}
+
         <Toast ref={(ref) => Toast.setRef(ref)} />
 
-        <Text style={{ textAlign: "center", fontSize: 16, color: "gray" }}>
-          You already have an account ?{" "}
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontSize: 16, color: "gray" }}>
+            You already have an account?{" "}
+          </Text>
           <TouchableOpacity
             style={styles.login}
             onPress={() => navigation.navigate("Login")}
           >
-           <Text style={styles.login}> Login</Text> 
+            <Text style={styles.login}>Login</Text>
           </TouchableOpacity>
-        </Text>
+        </View>
       </View>
     </View>
   );
@@ -215,7 +227,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   signup: {
-    height: 500,
+    height: 100,
     width: 300,
     backgroundColor: "#F0F1F1",
     position: "absolute",
@@ -229,7 +241,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
     fontSize: 28,
-    fontWeight: 700,
+
     marginBottom: 60,
   },
   appName: {
@@ -237,8 +249,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
     fontSize: 28,
-    fontWeight: 700,
-    marginBottom:60,
+
+    marginBottom: 60,
     position: "absolute",
     alignSelf: "center",
     marginTop: 240,
@@ -247,12 +259,12 @@ const styles = StyleSheet.create({
     color: "#000",
     textAlign: "center",
     marginTop: 20,
-    fontSize: 14,
-    fontWeight: 700,
-    marginBottom:60,
+    fontSize: 12,
+
+    marginBottom: 60,
     position: "absolute",
     alignSelf: "center",
-    marginTop: 270, 
+    marginTop: 275,
   },
 
   inputContainer: {
@@ -282,14 +294,14 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: "#ffff",
   },
-  Signupbtn: {
+  Loginbtn: {
     borderWidth: 1,
     width: 250,
     height: 40,
     textAlign: "center",
     paddingTop: 9,
     alignSelf: "center",
-    marginTop: 20,
+    marginTop: 40,
     backgroundColor: "#22719E",
     borderColor: "#22719E",
     color: "#ffff",
@@ -302,11 +314,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10,
     color: "#22719E",
-    fontWeight: 700,
   },
-  login: {
+  forgot: {
     marginTop: 10,
-
+    fontSize: 16,
+    color: "#22719E",
+  },
+  remember: {
+    marginTop: 5,
     color: "#22719E",
   },
 });

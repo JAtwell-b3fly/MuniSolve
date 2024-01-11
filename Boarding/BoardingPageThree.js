@@ -4,7 +4,9 @@ import React from 'react'
 const BoardingPageThree = ({navigation}) => {
     return (
         <View style={styles.MainContainer}>
-         <TouchableOpacity style={styles.SkipButton} onPress={() => navigation.navigate("Login")}> <Text style={styles.SkipButton}>SKIP</Text></TouchableOpacity>
+         <TouchableOpacity style={styles.SkipButtonContainer} onPress={() => navigation.navigate("Login")}>
+          <Text style={styles.SkipButtonText}>SKIP</Text>
+         </TouchableOpacity>
           <Image style={styles.BoardingImageOne} source={require("../assets/artificial.jpg")} />
           
               <Text style={styles.Subtitle}>FAQ Database:</Text>
@@ -29,50 +31,49 @@ const BoardingPageThree = ({navigation}) => {
     }
     
     const styles = StyleSheet.create({
-         
         MainContainer: {
-
-            flex: 1,
-            backgroundColor: '#fff',
-            alignItems: 'center',
-            justifyContent: 'center',
+          flex: 1,
+          backgroundColor: '#fff',
+          alignItems: 'center',
+          justifyContent: 'center',
         },
-    
-        SkipButton: {
-            color: "#22719E",
-            
-            marginBottom: 20,
-            marginLeft: 180,
-            marginTop: 70,
-            
-            fontSize: 22,
-            marginRight: 90,
-          },
-    
+      
+        SkipButtonContainer: {
+          marginBottom: 20,
+          marginLeft: 180,
+          marginTop: 70,
+          marginRight: 90,
+          marginTop: '-10px',
+        },
+      
+        SkipButtonText: {
+          color: "#22719E",
+          
+          fontSize: 18,
+        },
+      
         BoardingImageOne: {
-            height:350,
-            width:290,
-            
+          height: 350,
+          width: 290,
         },
-    
+      
         Subtitle: {
-            fontSize:15,
-            color:"#22719E",
-            marginLeft:-140,
-            fontWeight:500,
+          fontSize: 15,
+          color: "#22719E",
+          marginLeft: -140,
+          
         },
-    
+      
         Paragraph: {
-            color:"#9A8E8E",
-            width:250,
-            marginLeft:25,
-            marginTop:10
+          color: "#9A8E8E",
+          width: 250,
+          marginLeft: 25,
+          marginTop: 10,
         },
-    
-        NextPageArrow:{
-          height:40,
-          width:40,
+      
+        NextPageArrow: {
+          height: 40,
+          width: 40,
         },
-    })
-
+      });
 export default BoardingPageThree
