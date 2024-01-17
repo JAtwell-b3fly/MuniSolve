@@ -134,7 +134,7 @@ const Signup = ({ navigation }) => {
         AI-powered solutions for better communities
       </Text>
       <View style={styles.signup}>
-        <Text style={styles.title}>SIGN IN</Text>
+        <Text style={styles.title}>SIGN UP</Text>
         <View style={{marginTop: 90, }}>  
           <View style={styles.inputContainer}>
             <Image source={require("../assets/user.png")} style={styles.icon} />
@@ -201,7 +201,7 @@ const Signup = ({ navigation }) => {
               style={styles.login}
               onPress={() => navigation.navigate("Login")}
             >
-              <Text style={styles.login}>Login</Text>
+              <Text style={styles.login}>SignUp</Text>
             </TouchableOpacity></Text>
           </View>
         </View>
