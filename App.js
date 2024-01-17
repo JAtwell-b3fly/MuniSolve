@@ -30,6 +30,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import StackingApp from "./sceensStacks/Stacking";
+import Signout from "./components/signout";
 /////
 export default function App() {
   const Drawer = createDrawerNavigator();
@@ -138,39 +139,7 @@ export default function App() {
 
           <Drawer.Screen
             name="Signout"
-            component={(props) => (
-              <View
-                style={{
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Card sx={{ maxWidth: 305 }}>
-                  <CardMedia
-                    sx={{ height: 100 }}
-                    image="/assets/BotIcon.gif"
-                    title="green iguana"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      MuniSolve
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Are you sure you want to Signout
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <TouchableOpacity size="small" onPress={logout}>
-                      <Text>Yes, Log out</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity size="small" onPress={nav}>
-                      <Text>Cancel</Text>
-                    </TouchableOpacity>
-                  </CardActions>
-                </Card>
-              </View>
-            )}
+            component={Signout}
             options={{
               drawerIcon: ({ focused, size }) => (
                 <MaterialIcons name="logout" size={24} color="gray" />
@@ -192,4 +161,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  
 });

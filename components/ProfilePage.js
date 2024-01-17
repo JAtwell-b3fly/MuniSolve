@@ -29,9 +29,9 @@ function ProfilePage({ ...props }) {
       {/* Profile Section */}
       <View style={styles.profileContainer}>
         {/* <Text style={styles.profileText}>User Profile</Text> */}
-        <Image style={styles.ProfileImage} source={require("../assets/close-up.jpg")} />
-         <Text style={styles.profileText}>{ profileInfo.length > 0 ? <View>{profileInfo[0].Name}</View>: <View></View>}</Text>
-         <Text style={styles.profileEmail}>{ profileInfo.length > 0 ? <View>{profileInfo[0].Email}</View>: <View></View>}</Text>
+        <Image style={styles.ProfileImage} source={profileInfo.length > 0 ? profileInfo[0].Imageurl : null} />
+         <Text style={styles.profileText}>{ profileInfo.length > 0 ? <View><Text style={styles.profileText}>{profileInfo[0].Name}</Text></View>: <View></View>}</Text>
+         <Text style={styles.profileEmail}>{ profileInfo.length > 0 ? <View><Text style={styles.profileEmail}>{profileInfo[0].Email}</Text></View>: <View></View>}</Text>
          
       </View>
 
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   profileText: {
     fontSize: 18,
-    fontWeight: 'bold',
+    
     color:"white",
     textAlign:"center"
   },

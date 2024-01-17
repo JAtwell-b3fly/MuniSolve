@@ -135,78 +135,75 @@ const Signup = ({ navigation }) => {
       </Text>
       <View style={styles.signup}>
         <Text style={styles.title}>SIGN IN</Text>
-        <View style={styles.inputContainer}>
-          <Image source={require("../assets/user.png")} style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Username"
-            value={name}
-            onChangeText={(value) => handleInputChange("name", value)}
-          />
-        </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.name}</Text>
-
-        <View style={styles.inputContainer}>
-          <Image source={require("../assets/3.png")} style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            value={email}
-            onChangeText={(value) => handleInputChange("email", value)}
-          />
-        </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
-
-        <View style={styles.inputContainer}>
-          <Image source={require("../assets/2.png")} style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Mobile Number"
-            value={number}
-            onChangeText={(value) => handleInputChange("number", value)}
-          />
-        </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.number}</Text>
-
-        <View style={styles.inputContainer}>
-          <Image source={require("../assets/MUNI.png")} style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            value={password}
-            onChangeText={(value) => handleInputChange("password", value)}
-          />
-        </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>
-
-        {loading ? (
-          <ActivityIndicator size="large" color="#0000FF" />
-        ) : (
-          <TouchableOpacity>
-            <Text style={styles.Loginbtn} onPress={handleSignup}>
-              SIGN IN
-            </Text>
-          </TouchableOpacity>
-        )}
-
-        <Toast ref={(ref) => Toast.setRef(ref)} />
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text style={{ fontSize: 16, color: "gray" }}>
-            You already have an account?{" "}
-          </Text>
-          <TouchableOpacity
-            style={styles.login}
-            onPress={() => navigation.navigate("Login")}
+        <View style={{marginTop: 90, }}>  
+          <View style={styles.inputContainer}>
+            <Image source={require("../assets/user.png")} style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Username"
+              value={name}
+              onChangeText={(value) => handleInputChange("name", value)}
+            />
+          </View>
+          <Text style={{ color: "red", marginLeft: 24 }}>{errors.name}</Text>
+          <View style={styles.inputContainer}>
+            <Image source={require("../assets/3.png")} style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              value={email}
+              onChangeText={(value) => handleInputChange("email", value)}
+            />
+          </View>
+          <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
+          <View style={styles.inputContainer}>
+            <Image source={require("../assets/2.png")} style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Mobile Number"
+              value={number}
+              onChangeText={(value) => handleInputChange("number", value)}
+            />
+          </View>
+          <Text style={{ color: "red", marginLeft: 24 }}>{errors.number}</Text>
+          <View style={styles.inputContainer}>
+            <Image source={require("../assets/MUNI.png")} style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              value={password}
+              secureTextEntry 
+              onChangeText={(value) => handleInputChange("password", value)}
+            />
+          </View>
+          <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>
+          {loading ? (
+            <ActivityIndicator size="large" color="#0000FF" />
+          ) : (
+            <TouchableOpacity>
+              <Text style={styles.Loginbtn} onPress={handleSignup}>
+                SIGN IN
+              </Text>
+            </TouchableOpacity>
+          )}
+          <Toast ref={(ref) => Toast.setRef(ref)} />
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            <Text style={styles.login}>Login</Text>
-          </TouchableOpacity>
+            <Text style={{ fontSize: 16, color: "gray", position: 'absolute', bottom: -98 }}>
+              You already have an account?{" "}
+            
+            <TouchableOpacity
+              style={styles.login}
+              onPress={() => navigation.navigate("Login")}
+            >
+              <Text style={styles.login}>Login</Text>
+            </TouchableOpacity></Text>
+          </View>
         </View>
       </View>
     </View>
@@ -241,8 +238,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
     fontSize: 28,
-
+    position: 'absolute',
     marginBottom: 60,
+    alignSelf: 'center'
   },
   appName: {
     color: "#22719E",
@@ -301,7 +299,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingTop: 9,
     alignSelf: "center",
-    marginTop: 40,
+    marginTop: 20,
     backgroundColor: "#22719E",
     borderColor: "#22719E",
     color: "#ffff",
@@ -320,9 +318,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#22719E",
   },
-  remember: {
+  login: {
     marginTop: 5,
     color: "#22719E",
+    paddingTop: 2
   },
 });
 

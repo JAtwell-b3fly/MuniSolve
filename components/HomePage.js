@@ -1,11 +1,34 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { GiftedChat, Bubble, InputToolbar } from 'react-native-gifted-chat';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
+import { handleProfileInfo } from "./ChatHistroyFirebase";
 
 
 const Chat = () => {
     const [messages, setMessages] = useState([]);
     const [quickReplies, setQuickReplies] = useState([]);
+
+    const [profileInfo, setProfileInfo] = useState('');
+
+
+
+
+    useEffect(() =>{
+      handleProfileInfo().then ((data) =>{
+        console.log(data)
+        setProfileInfo(data);
+  
+      })
+    }, [])
+  
+    useEffect(() => {
+      console.log(profileInfo)
+      if (profileInfo && profileInfo.length > 0) {
+        console.log(profileInfo[0].Name);
+      } else {
+        console.log("Profile information not available");
+      } // Log the updated profileInfo
+    }, [profileInfo]);
 
 
 
@@ -105,7 +128,7 @@ const Chat = () => {
     const rasaAPI = async (name, message) => {
         console.log(message)
         try {
-            const response = await fetch("https://cdbc-41-246-29-157.ngrok-free.app/webhooks/rest/webhook", {
+            const response = await fetch("https://b676-41-246-31-129.ngrok-free.app/webhooks/rest/webhook", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -282,9 +305,11 @@ const Chat = () => {
 
     const renderChatEmpty = () => {
       return (
-          <Text style={{ textAlign: 'center', marginTop: '50%' }}>
-              Hi Kabelo! If you have any questions, don't hesitate to ask us.
-          </Text>
+          
+              <Text style={{textAlign: 'center', marginTop: '50%', transform: [{ scaleX: -1 }, { scaleY: -1 }] }}>
+                  Hi {profileInfo.length > 0 ? profileInfo[0].Name : null} ! If you have any questions, don't hesitate to ask us.
+              </Text>
+          
       );
   };
   

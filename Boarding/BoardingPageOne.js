@@ -9,18 +9,18 @@ const BoardingPageOne = ({navigation}) => {
     </TouchableOpacity>
     <Image style={styles.BoardingImageOne} source={require("../assets/artificial.jpg")} />
 
-    <Text style={styles.Subtitle}>FAQ Database:</Text>
+    <Text style={styles.Subtitle}>Description:</Text>
     <Text style={styles.Paragraph}>
-      Munibot is equipped with an extensive database of frequently asked questions and their corresponding answers.
+    Munibot is an intelligent and user-friendly chatbot designed to assist residents and stakeholders with common inquiries related to municipal services and information.
     </Text>
 
     <View style={{ flexDirection: "row", marginTop: 70 }}>
       <View style={{ flexDirection: "row", marginRight: 120, marginLeft: -30, marginTop: 15 }}>
-        <View style={{ width: 30, height: 10, backgroundColor: "#9ACAE5", marginLeft: 5, borderRadius: 10 }}></View>
-        <View style={{ width: 30, height: 10, backgroundColor: "#9ACAE5", marginLeft: 5, borderRadius: 10 }}></View>
         <View style={{ width: 30, height: 10, backgroundColor: "#22719E", marginLeft: 5, borderRadius: 10 }}></View>
+        <View style={{ width: 30, height: 10, backgroundColor: "#9ACAE5", marginLeft: 5, borderRadius: 10 }}></View>
+        <View style={{ width: 30, height: 10, backgroundColor: "#9ACAE5", marginLeft: 5, borderRadius: 10 }}></View>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Board2")}>
         <Image style={styles.NextPageArrow} source={require("../assets/icons8-arrow-50.png")} />
       </TouchableOpacity>
     </View>
@@ -40,13 +40,14 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginLeft: 180,
     marginTop: 70,
-    marginRight: 90,
+    alignSelf: 'flex-end',
     marginTop: '-10px',
+    marginRight: 30
   },
 
   SkipButtonText: {
     color: "#22719E",
-    
+    alignSelf: 'flex-end',
     fontSize: 18,
   },
 

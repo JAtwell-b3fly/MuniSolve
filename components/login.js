@@ -112,42 +112,44 @@ export default function Login({ navigation }) {
 
       <View style={styles.signup}>
         <Text style={styles.title}>SIGN IN</Text>
-        <View>
-          <Text>Forgot password</Text>
-        </View>
 
-        <View style={styles.inputContainer}>
-          <Image source={require("../assets/3.png")} style={styles.icon} />
-          <TextInput
-            style={[
-              styles.input,
-              touchedFields.email && errors.email
-                ? { borderColor: "red", borderWidth: 1 }
-                : null,
-            ]}
-            placeholder="Email"
-            value={email}
-            onChangeText={(value) => handleInputChange("email", value)}
-          />
-        </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
 
-        <View style={styles.inputContainer}>
-          <Image source={require("../assets/MUNI.png")} style={styles.icon} />
-          <TextInput
-            style={[
-              styles.input,
-              touchedFields.password && errors.password
-                ? { borderColor: "red", borderWidth: 1 }
-                : null,
-            ]}
-            placeholder="Password"
-            value={password}
-            onChangeText={(value) => handleInputChange("password", value)}
-          />
+        <View style={{marginTop: 100, }}>  
+          <View style={styles.inputContainer}>
+            <Image source={require("../assets/3.png")} style={styles.icon} />
+            <TextInput
+              style={[
+                styles.input,
+                touchedFields.email && errors.email
+                  ? { borderColor: "red", borderWidth: 1 }
+                  : null,
+              ]}
+              placeholder="Email"
+              value={email}
+              onChangeText={(value) => handleInputChange("email", value)}
+            />
+          </View>
+          <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
+          <View style={styles.inputContainer}>
+            <Image source={require("../assets/MUNI.png")} style={styles.icon} />
+            <TextInput
+              style={[
+                styles.input,
+                touchedFields.password && errors.password
+                  ? { borderColor: "red", borderWidth: 1 }
+                  : null,
+              ]}
+              placeholder="Password"
+              value={password}
+              secureTextEntry 
+              onChangeText={(value) => handleInputChange("password", value)}
+            />
+          </View>
+          <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>
+        
+          <View>
+          <Text style={{position: 'absolute', right: 28, color: '#22719E'}} onPress={() => navigation.navigate("Forgot")}>Forgot password</Text>
         </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.password}</Text>
-
         {loading ? (
           <ActivityIndicator size="large" color="#0000FF" />
         ) : (
@@ -168,15 +170,16 @@ export default function Login({ navigation }) {
             alignItems: "center",
           }}
         >
-          <Text style={{ fontSize: 16, color: "gray" }}>
+          <Text style={{ fontSize: 16, color: "gray", position: 'absolute', bottom: -120, }}>
             Do you have an account?{" "}
-          </Text>
+          
           <TouchableOpacity
             style={styles.remember}
             onPress={() => navigation.navigate("Signup")}
           >
             <Text style={styles.remember}>Create</Text>
-          </TouchableOpacity>
+          </TouchableOpacity></Text>
+        </View>
         </View>
       </View>
     </View>
@@ -211,8 +214,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
     fontSize: 28,
-
+    position: 'absolute',
     marginBottom: 60,
+    alignSelf: 'center'
   },
   appName: {
     color: "#22719E",
@@ -293,5 +297,6 @@ const styles = StyleSheet.create({
   remember: {
     marginTop: 5,
     color: "#22719E",
+    
   },
 });

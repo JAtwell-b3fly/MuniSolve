@@ -34,24 +34,29 @@ const Profile = ({navigation}) => {
   return (
     <View style={{ backgroundColor: "#F5F2F2", flex: 1 }}>
       <View style={styles.top}>
-        <Text style={{color: "#fff", fontSize: "32px", marginTop: "30px", marginLeft: "30px"}}>Profile</Text>
+        <Text style={{color: "#fff", fontSize: 32, marginTop: 30,  textAlign: 'center'}}>Profile</Text>
       </View>
       <View style={styles.profilecontainer}>
       <Image
-             source={require("../assets/user.png")}
+             source={profileInfo.length > 0 ? profileInfo[0].Imageurl : null} 
              style={styles.profilePic}
              />
-       <Text style={styles.name}>{ profileInfo.length > 0 ? <View>{profileInfo[0].Name}</View>: <View></View>}</Text>
-       <Text style={styles.email}>{ profileInfo.length > 0 ? <View>{profileInfo[0].Email}</View>: <View></View>}</Text>       
+       <Text style={styles.name}>
+  {profileInfo.length > 0 ? profileInfo[0].Name : null}
+</Text>
+<Text style={styles.email}>
+  {profileInfo.length > 0 ? profileInfo[0].Email : null}
+</Text>
+      
       </View>
       <View   >
         <Text style={styles.general}>GENERAL</Text>
       </View> 
-      <TouchableOpacity onPress={() => navigation.navigate("EditProfileScreen")}>
+      <TouchableOpacity onPress={() => navigation.navigate("EditProfileScreen", {data : profileInfo[0]})}>
         <View style={styles.infoContainer}  >
           <View style={styles.smallcontainer}>
             <Image
-              source={require("../assets/Rectangle 98.png")}
+              source={require("../assets/Rectangle98.png")}
               style={styles.icons}
             />
             <View>
@@ -59,14 +64,14 @@ const Profile = ({navigation}) => {
               <Text style={styles.infotext}>Update and modify your profile</Text>
             </View>
             <Image
-               source={require("../assets/Rectangle 92.png")}
+               source={require("../assets/Rectangle92.png")}
                style={styles.icon}
                />
           </View>
         </View>
       </TouchableOpacity>
 
-      <View style={styles.infoContainer}>
+      {/* <View style={styles.infoContainer}>
         <View style={styles.smallcontainer}>
           <Image
             source={require("../assets/Rectangle 95.png")}
@@ -81,33 +86,33 @@ const Profile = ({navigation}) => {
              style={styles.icon}
              />
         </View>
-      </View>
+      </View> */}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   top: {
-    width: "430px",
-    height: "307px",
+    width: 430,
+    height: 307,
     backgroundColor: "#22719E",
     justifyContent: "flex-start",
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
   profilecontainer: {
-    width: "354px",
-    height: "320px",
-    borderRadius: "25px",
+    width: 354,
+    height: 320,
+    borderRadius: 25,
     backgroundColor: "#fff",
     alignSelf: "center",
     position: "absolute",
-    marginTop: "130px",
+    marginTop: 130,
   },
   infoContainer: {
-    width: "378px",
-    height: "70px",
-    borderRadius: "15px",
+    width: 378,
+    height: 70,
+    borderRadius: 15,
     alignSelf: "center",
     backgroundColor: "#fff",
     marginVertical: 10,
@@ -121,8 +126,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   icons: {
-    width: "50px",
-    height: "50px",
+    width: 50,
+    height: 50,
   },
   icon: {
     width: 40,
@@ -131,9 +136,9 @@ const styles = StyleSheet.create({
   },
   general: {
     color: "#B4B2B2",
-    fontSize: "20px",
-    width: "104px",
-    height: "21px",
+    fontSize: 20,
+    width: 104,
+    height: 21,
     marginBottom: 30,
     marginTop: 180,
     marginLeft: 27,
@@ -142,30 +147,30 @@ const styles = StyleSheet.create({
   },
   subheading: {
     color: "#22719E",
-    fontSize: "24px",
+    fontSize: 24,
     
   },
   infotext: {
     color: "#958E8E",
-    fontSize: "16px",
+    fontSize: 16,
   },
   profilePic: {
     alignSelf: "center",
-    width: "120px",
-    height: "120px",
+    width: 120,
+    height: 120,
     marginTop: 30,
   },
   name: {
     textAlign: 'center',
     color: "#686666",
-    fontSize: "24px",
+    fontSize: 24,
     marginBottom: 20,
     marginTop: 20
   },
   email: {
     textAlign: 'center',
     color: "#686666",
-    fontSize: "20px"
+    fontSize: 20
   }
 });
 

@@ -108,54 +108,54 @@ export default function Login({ navigation }) {
         AI-powered solutions for better communities
       </Text>
       <View style={styles.signup}>
-        <Text style={styles.title}>Forgot Password</Text>
-        <Text style={styles.paragraph}>
-          Enter the email address you used when you joined and we’ll send you
-          instructions to reset your password
-        </Text>
-        <View style={styles.inputContainer}>
-          <Image source={require("../assets/3.png")} style={styles.icon} />
-          <TextInput
-            style={[
-              styles.input,
-              touchedFields.email && errors.email
-                ? { borderColor: "red", borderWidth: 1 }
-                : null,
-            ]}
-            placeholder="Email"
-            value={email}
-            onChangeText={(value) => handleInputChange("email", value)}
-          />
-        </View>
-        <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text style={{ fontSize: 16, color: "gray" }}>You remember your</Text>
-          <TouchableOpacity
-            style={styles.remember}
-            onPress={() => navigation.navigate("Login")}
+        <Text style={styles.title}>Reset Password</Text>
+        <View style={{marginTop: 170, }}>
+          <Text style={styles.paragraph}>
+            Enter the email address you used when you joined and we’ll send you
+            instructions to reset your password
+          </Text>
+          <View style={styles.inputContainer}>
+            <Image source={require("../assets/3.png")} style={styles.icon} />
+            <TextInput
+              style={[
+                styles.input,
+                touchedFields.email && errors.email
+                  ? { borderColor: "red", borderWidth: 1 }
+                  : null,
+              ]}
+              placeholder="Email"
+              value={email}
+              onChangeText={(value) => handleInputChange("email", value)}
+            />
+          </View>
+          <Text style={{ color: "red", marginLeft: 24 }}>{errors.email}</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            <Text style={styles.remember}> Login</Text>
-          </TouchableOpacity>
-        </View>
-
-        {loading ? (
-          <ActivityIndicator size="large" color="#0000FF" />
-        ) : (
-          <TouchableOpacity>
-            <Text style={styles.Loginbtn} onPress={handleForgot}>
-              SIGN IN
+            <Text style={{ fontSize: 16, color: "gray", position: 'absolute', bottom: -20, left: 85 }}>You remember your
+            <TouchableOpacity
+              style={styles.remember}
+              onPress={() => navigation.navigate("Login")}
+            >
+              <Text style={styles.remember}> Login</Text>
+            </TouchableOpacity>
             </Text>
-          </TouchableOpacity>
-        )}
-
-        <Toast ref={(ref) => Toast.setRef(ref)} />
+          </View>
+          {loading ? (
+            <ActivityIndicator size="large" color="#0000FF" />
+          ) : (
+            <TouchableOpacity>
+              <Text style={styles.Loginbtn} onPress={handleForgot}>
+                SIGN IN
+              </Text>
+            </TouchableOpacity>
+          )}
+          <Toast ref={(ref) => Toast.setRef(ref)} />
+        </View>
       </View>
     </View>
   );
@@ -182,15 +182,16 @@ const styles = StyleSheet.create({
     zIndex: 1,
     marginTop: 300,
     marginLeft: 50,
-    paddingBottom: 450,
+    paddingBottom: 380,
   },
   title: {
     color: "#22719E",
     textAlign: "center",
     marginTop: 20,
     fontSize: 28,
-
+    position: 'absolute',
     marginBottom: 60,
+    alignSelf: 'center'
   },
   appName: {
     color: "#22719E",
@@ -271,5 +272,14 @@ const styles = StyleSheet.create({
   remember: {
     marginTop: 5,
     color: "#22719E",
+  },
+  paragraph: {
+    position: "absolute",
+    zIndex: 1,
+    color: '#807878',
+    fontSize: 16,
+    top: -90,
+    width: 250,
+    left: 30
   },
 });
